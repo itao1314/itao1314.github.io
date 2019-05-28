@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-28T06:55:56.901Z</updated>
+  <updated>2019-05-28T08:24:25.182Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift-集合类型</title>
+    <link href="http://yoursite.com/2019/05/28/Swift-%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://yoursite.com/2019/05/28/Swift-集合类型/</id>
+    <published>2019-05-28T08:24:25.000Z</published>
+    <updated>2019-05-28T08:24:25.182Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p><code>Swift</code>用<code>Array</code>、<code>Sets</code>、<code>Dictionaries</code>三种基本的集合类型用来存储集合数据。</p></li><li><p><code>Array</code>是有序数据的集。</p></li><li><p><code>Sets</code>是无序无重复数据的集。</p></li><li><p><code>Dictionaries</code>是无序的键值对的集。</p><p> <img src="/2019/05/28/Swift-集合类型/CollectionTypes_intro_2x.png" alt="BP"></p></li><li><p><code>Swift</code>的集合类型存储的数据值类型必须明确。</p></li><li><p>创建一个数组：</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> someArray = [<span class="type">Element</span>]() <span class="comment">//空数组，Element是这个数组中唯一允许存在的数据类型。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> shoppingList: [<span class="type">String</span>] = [<span class="string">"Eggs"</span>, <span class="string">"Milk"</span>]<span class="comment">//数组字面量构造数组</span></span><br></pre></td></tr></table></figure></li><li><p>使用下标来一次改变一系列的数据值，即使新数据和原有数据的数量不一样。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shoppingList[<span class="number">4</span>...<span class="number">6</span>] = [<span class="string">"Bananas"</span>, <span class="string">"Apples"</span>]</span><br><span class="line"><span class="comment">// shoppingList 现在有6项</span></span><br></pre></td></tr></table></figure></li><li><p>不可以使用下标访问的形式去在数组尾部添加一个新元素。</p></li><li><p>一个类型必须是可哈希化的才可以存储在<code>Sets</code>中。</p></li><li><p>哈希值是<code>Int</code>类型的，相等的对象哈希值必须是相同的。</p></li><li><p><code>Swift</code>的基本数据类型都是可哈希化得。</p></li><li><p>没有关联值的枚举成员值默认也是可哈希化的。</p></li><li><p>自定义类型的想要做为<code>Sets</code>的值或者<code>Dictionaries</code>的<code>key</code>，必须实现<code>Hashable</code>协议。</p></li><li><p>创建一个空<code>Sets</code>：</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> someElement = <span class="type">Set</span>&lt;<span class="type">Element</span>&gt;()<span class="comment">//Sets没有简化的等价形式</span></span><br></pre></td></tr></table></figure></li><li><p>使用数组字面量创建集合</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> favoriteGenres: <span class="type">Set</span>&lt;<span class="type">String</span>&gt; = [<span class="string">"Rock"</span>, <span class="string">"Classical"</span>, <span class="string">"Hip hop"</span>]</span><br><span class="line"><span class="comment">// favoriteGenres 被构造成含有三个初始值的集合</span></span><br><span class="line"><span class="comment">//一个Set类型不能从数组的字面量中被单独推断出来，因此Set类型必须被显示声明，但是&lt;String&gt;可以被推断。</span></span><br></pre></td></tr></table></figure></li><li><p>集合的操作</p><p><img src="/2019/05/28/Swift-集合类型/setVennDiagram_2x.png" alt="BP"></p></li><li><p><code>Swift</code>中使用<code>Dictionary&lt;Key, Value&gt;</code>定义，简化形式<code>[Key: Value]</code>。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> namesOfIntegers = [<span class="type">Int</span>: <span class="type">String</span>]()</span><br><span class="line"><span class="comment">// namesOfIntegers 是一个空的 [Int: String] 字典</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Swift&lt;/code&gt;用&lt;code&gt;Array&lt;/code&gt;、&lt;code&gt;Sets&lt;/code&gt;、&lt;code&gt;Dictionaries&lt;/code&gt;三种基本的集合类型用来存储集合数据。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Array
+      
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Swift基础" scheme="http://yoursite.com/tags/Swift%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift-字符串和字符</title>
