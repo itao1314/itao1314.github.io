@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-27T08:34:27.789Z</updated>
+  <updated>2019-05-28T06:55:56.901Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift-字符串和字符</title>
+    <link href="http://yoursite.com/2019/05/28/Swift-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AD%97%E7%AC%A6/"/>
+    <id>http://yoursite.com/2019/05/28/Swift-字符串和字符/</id>
+    <published>2019-05-28T06:55:56.000Z</published>
+    <updated>2019-05-28T06:55:56.901Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><code>Swift</code>的字符串通过<code>String</code>类型来表示。<code>Swift</code>中的<code>String</code>类型与<code>Foundation</code>中的<code>NSString</code>类进行了无缝桥接。</p></blockquote><ol><li><p>字符串字面量 ——&gt; <code>&quot;Some string literal value&quot;</code></p></li><li><p>多行字符串字面量-由一对三个双引号包裹着的文本：</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> multilineString = <span class="string">"""</span></span><br><span class="line"><span class="string">These are the same.</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure></li><li><p>字符串字面量中的特殊字符<code>\0(空字符)</code>、<code>\\(反斜线)</code>、<code>\t(水平制表符)</code>、<code>\n(换行符)</code>、<code>\r(回车符)</code>、<code>\&quot;(双引号)</code>、<code>\&#39;(单引号)</code>。</p></li><li><p><code>Swift</code>中<code>String</code>类型是值类型。字符串在传递时进行值拷贝。</p></li><li><p>使用<code>for-in</code>循环来遍历字符串，获取每个字符：</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> character <span class="keyword">in</span> <span class="string">"Dog!🐶"</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(character)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>字符串可以通过传递一个值类型为<code>Character</code>的数组作为自变量来初始化：</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> catCharacters: [<span class="type">Character</span>] = [<span class="string">"C"</span>, <span class="string">"a"</span>, <span class="string">"t"</span>, <span class="string">"!"</span>, <span class="string">"🐱"</span>]</span><br><span class="line"><span class="keyword">let</span> catString = <span class="type">String</span>(catCharacters)</span><br><span class="line"><span class="built_in">print</span>(catString)</span><br><span class="line"><span class="comment">// 打印输出：“Cat!🐱”</span></span><br></pre></td></tr></table></figure></li><li><p>不能将字符串或者字符添加到一个已经存在的字符变量上，因为字符变量只能包含一个字符。</p></li><li><p>字符串插值<code>\(multiplier)</code>。</p></li><li><p>每一个<code>String</code>值都有一个关联的索引类型，<code>String.index</code>对应字符串中的每一个<code>Character</code>的位置。</p></li><li><p>不同的字符可能会占据不同的内存空间，所以如果要知道一个<code>Character</code>的确定位置，必须从<code>String</code>的开头遍历。因此<code>Swift</code>的字符串不能用整数做索引。</p></li><li><p>使用<code>String</code>的<code>index(before:)</code>、<code>index(after:)</code>、<code>index(_:offsetBy:)</code>方法来获取一个索引。</p></li><li><p><code>Swift</code>中的<code>SubString</code>绝大部分函数与<code>String</code>一样。</p></li><li><p><code>String</code>和<code>SubString</code>的区别在性能上，<code>SubString</code>可以重用原<code>String</code>的内存空间或者另一个<code>SubString</code>的内存空间。</p></li><li><p><code>SubString</code>不合适长期存储–因为重用了原<code>String</code>的内存空间，原<code>String</code>内存空间必须保留知道<code>SubString</code>不再被使用为止。</p></li><li><p>下图展示<code>String</code>和<code>SubString</code>的关系：</p><p><img src="/2019/05/28/Swift-字符串和字符/stringSubstring_2x.png" alt="BP"></p></li><li><p><code>Swift</code>三种方式比较文本值：字符串字符相等、前缀相等。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Swift&lt;/code&gt;的字符串通过&lt;code&gt;String&lt;/code&gt;类型来表示。&lt;code&gt;Swift&lt;/code&gt;中的&lt;code&gt;String&lt;/code&gt;类型与&lt;code&gt;Foundation&lt;/code&gt;中的&lt;code&gt;NS
+      
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Swift基础" scheme="http://yoursite.com/tags/Swift%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift-基本运算符</title>
