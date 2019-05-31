@@ -254,6 +254,203 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/Swift-枚举/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="疯癫和尚">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/12480682?s=400&u=0cf289ab830e5f2a5d3cb5d83685f9144a1b12fb&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="疯癫和尚">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/31/Swift-枚举/" itemprop="url">Swift-枚举</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-31T15:14:44+08:00">
+                2019-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>枚举为一组相关的值定义了一个共同的类型，在代码中以类型安全的方式来使用这些值。</p>
+<p><code>Swift</code>的枚举不必给每一个枚举成员提供一个值，如要要提供值，值的类型可以是字符串、字符、整形值或浮点值。</p>
+<p>枚举成员可以指定任意类型的关联值存储到枚举成员中。</p>
+</blockquote>
+<h2 id="枚举语法"><a href="#枚举语法" class="headerlink" title="枚举语法"></a>枚举语法</h2><ol>
+<li><p>使用<code>enum</code>关键字来创建枚举。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">CompassPoint</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> north</span><br><span class="line">    <span class="keyword">case</span> south</span><br><span class="line">    <span class="keyword">case</span> east</span><br><span class="line">    <span class="keyword">case</span> west</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Planet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> mercury, venus, earth, mars, jupiter, saturn, uranus, neptune</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>枚举中定义的值是这个枚举的成员值。</p>
+</li>
+<li><p><code>Swift</code>的枚举成员在被创建时不会被赋予一个默认的整形值。如上<code>CompassPoint</code>例子中，这些枚举成员本身就是完备的值，值的类型是<code>CompassPoint</code>类型。</p>
+</li>
+</ol>
+<h2 id="枚举成员的遍历"><a href="#枚举成员的遍历" class="headerlink" title="枚举成员的遍历"></a>枚举成员的遍历</h2><ol>
+<li><p>枚举遵循<code>CaseIterable</code>协议，会生成一个<code>allCases</code>属性，用于表示一个包含枚举所有成员的集合。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Beverage</span>: <span class="title">CaseIterable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> coffee, tea, juice</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> numberOfChoices = <span class="type">Beverage</span>.allCases.<span class="built_in">count</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\(numberOfChoices) beverages available"</span>)</span><br><span class="line"><span class="comment">// 打印“3 beverages available”</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> beverage <span class="keyword">in</span> <span class="type">Beverage</span>.allCases &#123;</span><br><span class="line">    <span class="built_in">print</span>(beverage)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// coffee</span></span><br><span class="line"><span class="comment">// tea</span></span><br><span class="line"><span class="comment">// juice</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="关联值"><a href="#关联值" class="headerlink" title="关联值"></a>关联值</h2><ol>
+<li><p>可以为枚举成员设置一个常量或变量，并在赋值之后查看这个值，这个值这称为关联值。</p>
+</li>
+<li><p>关联值是可以修改的。</p>
+</li>
+<li><p><code>Swift</code>枚举可以存储任意类型的关联值，每个枚举成员的关联值类型可以不同。</p>
+</li>
+</ol>
+<h2 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h2><ol>
+<li><p>枚举成员可以被默认值预填充，称为原始值。这些原始值的类型必须相同。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">ASCIIControlCharacter</span>: <span class="title">Character</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> tab = <span class="string">"\t"</span></span><br><span class="line">    <span class="keyword">case</span> lineFeed = <span class="string">"\n"</span></span><br><span class="line">    <span class="keyword">case</span> carriageReturn = <span class="string">"\r"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>每个原始值在枚举声明中必须是唯一的。</p>
+</li>
+<li><p>原始值和关联值是不同的。原始值是在定义枚举是被预先填充的值。对于一个特定的枚举成员，它的原始值始终不变。关联值是创建一个基于枚举成员的常量或变量时才设置的值，枚举成员的关联值可以变化。</p>
+</li>
+</ol>
+<h3 id="原始值的隐式赋值"><a href="#原始值的隐式赋值" class="headerlink" title="原始值的隐式赋值"></a>原始值的隐式赋值</h3><ol>
+<li><p>在使用原始值为整数或字符串类型的枚举时，不需要显示的为每一个枚举成员设置原始值，<code>Swift</code>会自动赋值。</p>
+</li>
+<li><p>使用整数作为原始值，隐式赋值的值依次递增<code>1</code>。如果第一个枚举成员没有设置原始值，默认是<code>0</code>。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Planet</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> mercury = <span class="number">1</span>, venus, earth, mars, jupiter, saturn, uranus, neptune</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当使用字符串作为枚举类型的原始值时，每个枚举成员的原始值为该枚举成员的名称。</p>
+</li>
+<li><p>使用枚举成员的<code>rawValue</code>属性可以访问该枚举成员的原始值。</p>
+</li>
+</ol>
+<h3 id="使用原始值初始化"><a href="#使用原始值初始化" class="headerlink" title="使用原始值初始化"></a>使用原始值初始化</h3><ol>
+<li><p>如果定义枚举是使用了原始值，那么将会自动获得一个初始化方法，方法使用原始值的类型创建枚举，返回一个可选型的枚举类型。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> possiblePlanet = <span class="type">Planet</span>(rawValue: <span class="number">7</span>)</span><br><span class="line"><span class="comment">// possiblePlanet 类型为 Planet? 值为 Planet.uranus</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="递归枚举"><a href="#递归枚举" class="headerlink" title="递归枚举"></a>递归枚举</h2><ol>
+<li><p>递归枚举是一种枚举类型，它有一个或多个枚举成员使用该枚举类型的实例作为关联值。在枚举成员前加上<code>indirect</code>表示该成员可递归，在枚举类型开头加上<code>indirect</code>来表示他的所有成员都是可递归的。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">ArithmeticExpression</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> number(<span class="type">Int</span>)</span><br><span class="line">    <span class="keyword">indirect</span> <span class="keyword">case</span> addition(<span class="type">ArithmeticExpression</span>, <span class="type">ArithmeticExpression</span>)</span><br><span class="line">    <span class="keyword">indirect</span> <span class="keyword">case</span> multiplication(<span class="type">ArithmeticExpression</span>, <span class="type">ArithmeticExpression</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">indirect</span> <span class="class"><span class="keyword">enum</span> <span class="title">ArithmeticExpression</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> number(<span class="type">Int</span>)</span><br><span class="line">    <span class="keyword">case</span> addition(<span class="type">ArithmeticExpression</span>, <span class="type">ArithmeticExpression</span>)</span><br><span class="line">    <span class="keyword">case</span> multiplication(<span class="type">ArithmeticExpression</span>, <span class="type">ArithmeticExpression</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> five = <span class="type">ArithmeticExpression</span>.number(<span class="number">5</span>)</span><br><span class="line"><span class="keyword">let</span> four = <span class="type">ArithmeticExpression</span>.number(<span class="number">4</span>)</span><br><span class="line"><span class="keyword">let</span> sum = <span class="type">ArithmeticExpression</span>.addition(five, four)</span><br><span class="line"><span class="keyword">let</span> product = <span class="type">ArithmeticExpression</span>.multiplication(sum, <span class="type">ArithmeticExpression</span>.number(<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">evaluate</span><span class="params">(<span class="number">_</span> expression: ArithmeticExpression)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> expression &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .number(value):</span><br><span class="line">        <span class="keyword">return</span> value</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .addition(<span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        <span class="keyword">return</span> evaluate(<span class="keyword">left</span>) + evaluate(<span class="keyword">right</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .multiplication(<span class="keyword">left</span>, <span class="keyword">right</span>):</span><br><span class="line">        <span class="keyword">return</span> evaluate(<span class="keyword">left</span>) * evaluate(<span class="keyword">right</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(evaluate(product))</span><br><span class="line"><span class="comment">// 打印“18”</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/Swift-闭包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1682,7 +1879,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
