@@ -254,6 +254,211 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/03/Swift-属性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="疯癫和尚">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/12480682?s=400&u=0cf289ab830e5f2a5d3cb5d83685f9144a1b12fb&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="疯癫和尚">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/03/Swift-属性/" itemprop="url">Swift-属性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-03T14:57:26+08:00">
+                2019-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>属性将值与类、枚举、结构体关联。</p>
+</li>
+<li><p>存储属性将常量和变量存储为实例的一部分，计算属性是直接计算值。</p>
+</li>
+<li><p>计算属性可以用于类、结构体、枚举。存储属性只能用于类和结构体。</p>
+</li>
+<li><p>类也可以直接与类型本身关联，这种属性称为类型属性。</p>
+</li>
+</ol>
+<h2 id="存储属性"><a href="#存储属性" class="headerlink" title="存储属性"></a>存储属性</h2><ol>
+<li>存储属性就是存储在类或结构体实例里的一个常量和变量。</li>
+</ol>
+<h3 id="常量结构体实例的存储属性"><a href="#常量结构体实例的存储属性" class="headerlink" title="常量结构体实例的存储属性"></a>常量结构体实例的存储属性</h3><ol>
+<li>创建一个结构体实例并将其赋值给一个常量，则无法改变该实例的任何属性。这种行为是因为结构体属于值类型。当值类型的实例被声明为常量的时候，它的所有属性也就成了变量。</li>
+</ol>
+<h3 id="延时加载存储属性"><a href="#延时加载存储属性" class="headerlink" title="延时加载存储属性"></a>延时加载存储属性</h3><ol>
+<li><p>延时加载存储属性是指当第一次被调用时才会计算其初始值的属性。使用<code>lazy</code>关键字来标记。</p>
+</li>
+<li><p>延时加载属性必须声明为变量。</p>
+</li>
+<li><p>一个被标记为<code>lazy</code>的属性在没有被初始化的时就被多个线程访问，无法保证只初始化一次，即不是线程安全的。</p>
+</li>
+</ol>
+<h3 id="存储属性和实例变量"><a href="#存储属性和实例变量" class="headerlink" title="存储属性和实例变量"></a>存储属性和实例变量</h3><p><code>Swift</code>中的属性没有对应的实例变量，属性的备份存储也无法直接访问。</p>
+<h2 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h2><ol>
+<li><p>计算属性不直接存储值，而是提供一个<code>getter</code>和一个可选的<code>setter</code>，来间接获取和设置其他属性或变量的值。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Size</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rect</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> origin = <span class="type">Point</span>()</span><br><span class="line">    <span class="keyword">var</span> size = <span class="type">Size</span>()</span><br><span class="line">    <span class="keyword">var</span> center: <span class="type">Point</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> centerX = origin.x + (size.width / <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">let</span> centerY = origin.y + (size.height / <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="type">Point</span>(x: centerX, y: centerY)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span>(newCenter) &#123;</span><br><span class="line">            origin.x = newCenter.x - (size.width / <span class="number">2</span>)</span><br><span class="line">            origin.y = newCenter.y - (size.height / <span class="number">2</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> square = <span class="type">Rect</span>(origin: <span class="type">Point</span>(x: <span class="number">0.0</span>, y: <span class="number">0.0</span>),</span><br><span class="line">    size: <span class="type">Size</span>(width: <span class="number">10.0</span>, height: <span class="number">10.0</span>))</span><br><span class="line"><span class="keyword">let</span> initialSquareCenter = square.center</span><br><span class="line">square.center = <span class="type">Point</span>(x: <span class="number">15.0</span>, y: <span class="number">15.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"square.origin is now at (\(square.origin.x), \(square.origin.y))"</span>)</span><br><span class="line"><span class="comment">// 打印“square.origin is now at (10.0, 10.0)”</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>计算属性的<code>setter</code>没有定义表示新值的参数名，默认名<code>newValue</code>。</p>
+</li>
+<li><p>只有<code>getter</code>没有<code>setter</code>的计算属性叫只读计算属性。只读计算属性可以去掉<code>get</code>关键字和花括号。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Cuboid</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span>, depth = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> width * height * depth</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fourByFiveByTwo = <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)"</span>)</span><br><span class="line"><span class="comment">// 打印“the volume of fourByFiveByTwo is 40.0”</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="属性观察器"><a href="#属性观察器" class="headerlink" title="属性观察器"></a>属性观察器</h2><ol>
+<li><p>属性观察器监控和响应属性值的变化，每次属性被设置值的时候都会调用属性观察器。</p>
+</li>
+<li><p>延时加载存储属性不可以添加属性观察器。</p>
+</li>
+<li><p>计算属性没有必要添加属性观察器，因为可以直接通过它的<code>setter</code>监控和响应值的变化。</p>
+</li>
+<li><p><code>Swift</code>有两个属性观察器：</p>
+<ul>
+<li><code>willSet</code>在新的值被设置之前调用。</li>
+<li><code>didSet</code>在新的值被设置之后调用。</li>
+</ul>
+</li>
+<li><p><code>willSet</code>观察器会将新的属性值作为常量参数传入，默认名称为<code>newValue</code>。</p>
+</li>
+<li><p><code>didSet</code>观察器将旧的属性值作为参数传入，默认名称<code>oldValue</code>。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StepCounter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> totalSteps: <span class="type">Int</span> = <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span>(newTotalSteps) &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"将 totalSteps 的值设置为 \(newTotalSteps)"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> totalSteps &gt; oldValue  &#123;</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">"增加了 \(totalSteps - oldValue) 步"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> stepCounter = <span class="type">StepCounter</span>()</span><br><span class="line">stepCounter.totalSteps = <span class="number">200</span></span><br><span class="line"><span class="comment">// 将 totalSteps 的值设置为 200</span></span><br><span class="line"><span class="comment">// 增加了 200 步</span></span><br><span class="line">stepCounter.totalSteps = <span class="number">360</span></span><br><span class="line"><span class="comment">// 将 totalSteps 的值设置为 360</span></span><br><span class="line"><span class="comment">// 增加了 160 步</span></span><br><span class="line">stepCounter.totalSteps = <span class="number">896</span></span><br><span class="line"><span class="comment">// 将 totalSteps 的值设置为 896</span></span><br><span class="line"><span class="comment">// 增加了 536 步</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果将带有观察器的属性通过 <code>in-out</code> 方式传入函数，<code>willSet</code>和 <code>didSet</code>也会调用。这是因为 <code>in-out</code>参数采用了拷入拷出内存模式：即在函数内部使用的是参数的 <code>copy</code>，函数结束后，又对参数重新赋值。</p>
+</li>
+</ol>
+<h2 id="类型属性语法"><a href="#类型属性语法" class="headerlink" title="类型属性语法"></a>类型属性语法</h2><ol>
+<li><p><code>Swift</code>中的类型属性作为类型定义的一部分，它的作用范围在类型支持的范围内。</p>
+</li>
+<li><p>使用关键字<code>static</code>来定义类型属性</p>
+</li>
+<li><p>在为类定义计算型属性时，改用关键字<code>class</code>来支持子类对父类的实现进行重写。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SomeStructure</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">SomeEnumeration</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">6</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">27</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">var</span> <span class="title">overrideableComputedTypeProperty</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">107</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="built_in">print</span>(<span class="type">SomeStructure</span>.storedTypeProperty)</span><br><span class="line"><span class="comment">// 打印“Some value.”</span></span><br><span class="line"><span class="type">SomeStructure</span>.storedTypeProperty = <span class="string">"Another value."</span></span><br><span class="line"><span class="built_in">print</span>(<span class="type">SomeStructure</span>.storedTypeProperty)</span><br><span class="line"><span class="comment">// 打印“Another value.”</span></span><br><span class="line"><span class="built_in">print</span>(<span class="type">SomeEnumeration</span>.computedTypeProperty)</span><br><span class="line"><span class="comment">// 打印“6”</span></span><br><span class="line"><span class="built_in">print</span>(<span class="type">SomeClass</span>.computedTypeProperty)</span><br><span class="line"><span class="comment">// 打印“27”</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/03/Swift-类和结构体/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2085,7 +2290,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
