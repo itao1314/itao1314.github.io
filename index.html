@@ -254,6 +254,212 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/03/Swift-类和结构体/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="疯癫和尚">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/12480682?s=400&u=0cf289ab830e5f2a5d3cb5d83685f9144a1b12fb&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="疯癫和尚">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/03/Swift-类和结构体/" itemprop="url">Swift-类和结构体</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-03T09:50:51+08:00">
+                2019-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>类的实例被称为对象。</p>
+</blockquote>
+<h2 id="结构体和类对比"><a href="#结构体和类对比" class="headerlink" title="结构体和类对比"></a>结构体和类对比</h2><h3 id="类和结构体的相同点："><a href="#类和结构体的相同点：" class="headerlink" title="类和结构体的相同点："></a>类和结构体的相同点：</h3><ul>
+<li><p>定义属性用于存储值</p>
+</li>
+<li><p>定义方法用于提供功能</p>
+</li>
+<li><p>定义下标操作用于通过下标语法访问它们的值</p>
+</li>
+<li><p>定义构造器用于设置初始值</p>
+</li>
+<li><p>通过扩展以增加默认实现之外的功能</p>
+</li>
+<li><p>遵循协议以提供某种标准功能</p>
+</li>
+</ul>
+<h3 id="类和结构体的不同点："><a href="#类和结构体的不同点：" class="headerlink" title="类和结构体的不同点："></a>类和结构体的不同点：</h3><ul>
+<li><p>继承允许一个类继承另一个类的特征</p>
+</li>
+<li><p>类型转换允许在运行时检查和解释一个类实例的类型</p>
+</li>
+<li><p>析构器允许一个类实例释放任何其所分配的资源。</p>
+</li>
+<li><p>引用计数允许对一个类的多次引用</p>
+</li>
+<li><p>结构体有一个自动生成的成员逐一构造器，类没有</p>
+</li>
+</ul>
+<h2 id="类型定义的语法"><a href="#类型定义的语法" class="headerlink" title="类型定义的语法"></a>类型定义的语法</h2><ol>
+<li><p><code>struct</code>关键字定义结构体，<code>class</code>关键字定义类。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SomeStructure</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 在这里定义结构体</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 在这里定义类</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>每当定义一个新的结构体或者类时，都是定义了一个新的<code>Swift</code>类型。</p>
+</li>
+<li><p>存储属性是与类或结构体绑定的，并存储在其中的常量或变量。</p>
+</li>
+<li><p>所有的结构体都有一个自动生成的成员逐一构造器，用于初始化新结构体实例中成员的属性。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Resolution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> height = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> vga = <span class="type">Resolution</span>(width: <span class="number">640</span>, height: <span class="number">480</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="结构体和枚举是值类型"><a href="#结构体和枚举是值类型" class="headerlink" title="结构体和枚举是值类型"></a>结构体和枚举是值类型</h2><ol>
+<li><p>值类型是这样一种类型，当它被赋值给一个变量、常量或者被传递给一个函数的时候，其值会被拷贝。</p>
+</li>
+<li><p><code>Swift</code> 中所有的基本类型：整数（integer）、浮点数（floating-point number）、布尔值（boolean）、字符串（string)、数组（array）和字典（dictionary），都是值类型，其底层也是使用结构体实现的。</p>
+</li>
+<li><p>结构体和枚举的实例，以及实例中所包含的任何值类型的属性，在代码传递的时候都会被复制。</p>
+</li>
+<li><p><code>Swift</code>对值类型的复制进行了优化，新的值类型不会立刻被复制,而是和原值类型共享一份内存，在某个副本要被修改前，才会进行复制。</p>
+</li>
+</ol>
+<h2 id="类是引用类型"><a href="#类是引用类型" class="headerlink" title="类是引用类型"></a>类是引用类型</h2><ol>
+<li><p>引用类型在被赋值到一个变量、常量或被传递到一个函数时，其值不会被复制，使用的是已经存在实例的引用，而不是拷贝。</p>
+</li>
+<li><p>类的实例被声明为常量，仍然可以修改属性值。因为声明的常量只是对类的实例的引用，改变类的实例的属性并没有修改声明的常量的引用值。</p>
+</li>
+</ol>
+<h3 id="恒等运算符"><a href="#恒等运算符" class="headerlink" title="恒等运算符"></a>恒等运算符</h3><ol>
+<li><p>判断两个常量或变量是否引用同一个类实例用恒等运算符：<code>相同(===)</code>和<code>不相同(!==)</code>。</p>
+</li>
+<li><p><code>相同(===)</code>和<code>等于(==)</code>是不同的，<code>相同(===)</code>表示两个常量或变量引用同一个类实例，<code>等于(==)</code>表示两个实例的值相等或等价。</p>
+</li>
+<li><p>Swift 中引用了某个引用类型实例的常量或变量，与 C 语言中的指针类似，不过它并不直接指向某个内存地址，也不要求你使用星号（*）来表明你在创建一个引用</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/Swift-枚举/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1879,7 +2085,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
