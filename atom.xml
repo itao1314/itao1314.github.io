@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-03T08:53:29.988Z</updated>
+  <updated>2019-06-04T01:55:30.964Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift-继承</title>
+    <link href="http://yoursite.com/2019/06/04/Swift-%E7%BB%A7%E6%89%BF/"/>
+    <id>http://yoursite.com/2019/06/04/Swift-继承/</id>
+    <published>2019-06-04T01:55:30.000Z</published>
+    <updated>2019-06-04T01:55:30.964Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>一个类可以继承另一个类的方法，属性和其他特性。当一个类继承其他类时，继承类叫子类，被继承的类叫超类（或父类）。</p></blockquote><h2 id="定义一个基类"><a href="#定义一个基类" class="headerlink" title="定义一个基类"></a>定义一个基类</h2><ol><li><p>不继承其他类的类，称之为基类。</p></li><li><p><code>Swift</code>中的类不从一个通用的基类继承而来。</p></li></ol><h2 id="子类生成"><a href="#子类生成" class="headerlink" title="子类生成"></a>子类生成</h2><ol><li><p>子类生成指的的是在一个已有类的基础上创建一个新的类。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>: <span class="title">SomeSuperclass</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 这里是子类的定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><h2 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h2><ol><li><p>子类可以为继承来的实例方法，类方法，实例属性，类属性，或下标提供自己的实现，这种行为叫重写。</p></li><li><p>使用<code>override</code>标记重写。</p></li></ol><h3 id="访问超类的方法，属性及下标"><a href="#访问超类的方法，属性及下标" class="headerlink" title="访问超类的方法，属性及下标"></a>访问超类的方法，属性及下标</h3><ol><li>使用<code>super</code>前缀来访问超类的方法，属性或下标：<ul><li>在方法 <code>someMethod()</code> 的重写实现中，可以通过 <code>super.someMethod()</code> 来调用超类版本的 <code>someMethod()</code> 方法。</li><li>在属性 <code>someProperty</code> 的 <code>getter</code> 或 <code>setter</code> 的重写实现中，可以通过 <code>super.someProperty</code> 来访问超类版本的 <code>someProperty</code> 属性。</li><li>在下标的重写实现中，可以通过 <code>super[someIndex]</code> 来访问超类版本中的相同下标。</li></ul></li></ol><h3 id="重写方法"><a href="#重写方法" class="headerlink" title="重写方法"></a>重写方法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Train</span>: <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Choo Choo"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="重写属性"><a href="#重写属性" class="headerlink" title="重写属性"></a>重写属性</h3><ol><li>可以重写继承来的实例属性或类属性，提供定制的<code>getter</code>和<code>setter</code>，或添加属性观察器。</li></ol><h4 id="重写属性的Getter和Setter"><a href="#重写属性的Getter和Setter" class="headerlink" title="重写属性的Getter和Setter"></a>重写属性的<code>Getter</code>和<code>Setter</code></h4><ol><li><p>子类并不知道继承来的属性是存储型的还是计算型的，只知道继承来的属性会有一个名字和类型。</p></li><li><p>重写一个属性是，必须将它的名字和类型都写出来，是编译器能去检查重写的属性是与超类中同名同类型的属性相匹配。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> currentSpeed = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"traveling at \(currentSpeed) miles per hour"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// 什么也不做——因为车辆不一定会有噪音</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutomaticCar</span>: <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> currentSpeed: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            gear = <span class="type">Int</span>(currentSpeed / <span class="number">10.0</span>) + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>可以将继承来的只读属性重写为一个读写属性，只需提供<code>setter</code>和<code>getter</code>方法。</p></li><li><p>不可以将一个继承来的读写属性重写为一个只读属性。</p></li></ol><h4 id="重写属性观察器"><a href="#重写属性观察器" class="headerlink" title="重写属性观察器"></a>重写属性观察器</h4><ol><li><p>可以通过重写属性为继承来的属性添加属性观察器。</p></li><li><p>不可以为继承来的常量存储型属性或只读计算型属性添加属性观察器，因为这些属性的值是不可以被设置的。</p></li><li><p>不可以同时提供重写的<code>setter</code>和属性观察器。</p></li></ol><h2 id="防止重写"><a href="#防止重写" class="headerlink" title="防止重写"></a>防止重写</h2><ol><li><p>把属性，方法或下标标记为<code>final</code>防止重写。</p></li><li><p>使用<code>final class</code>来将整个类标记为<code>final</code>，这样的类不可以被继承。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;一个类可以继承另一个类的方法，属性和其他特性。当一个类继承其他类时，继承类叫子类，被继承的类叫超类（或父类）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;定义一个基类&quot;&gt;&lt;a href=&quot;#定义一个基类&quot; class=&quot;headerlin
+      
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Swift基础" scheme="http://yoursite.com/tags/Swift%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift-下标</title>

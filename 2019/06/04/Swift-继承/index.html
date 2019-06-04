@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="类的实例被称为对象。  结构体和类对比类和结构体的相同点： 定义属性用于存储值  定义方法用于提供功能  定义下标操作用于通过下标语法访问它们的值  定义构造器用于设置初始值  通过扩展以增加默认实现之外的功能  遵循协议以提供某种标准功能   类和结构体的不同点： 继承允许一个类继承另一个类的特征  类型转换允许在运行时检查和解释一个类实例的类型  析构器允许一个类实例释放任何其所分配的资源。">
+<meta name="description" content="一个类可以继承另一个类的方法，属性和其他特性。当一个类继承其他类时，继承类叫子类，被继承的类叫超类（或父类）。  定义一个基类 不继承其他类的类，称之为基类。  Swift中的类不从一个通用的基类继承而来。   子类生成 子类生成指的的是在一个已有类的基础上创建一个新的类。  123class SomeClass: SomeSuperclass &amp;#123;    // 这里是子类的定义&amp;#12">
 <meta name="keywords" content="Swift基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift-类和结构体">
-<meta property="og:url" content="http://yoursite.com/2019/06/03/Swift-类和结构体/index.html">
+<meta property="og:title" content="Swift-继承">
+<meta property="og:url" content="http://yoursite.com/2019/06/04/Swift-继承/index.html">
 <meta property="og:site_name" content="疯癫和尚">
-<meta property="og:description" content="类的实例被称为对象。  结构体和类对比类和结构体的相同点： 定义属性用于存储值  定义方法用于提供功能  定义下标操作用于通过下标语法访问它们的值  定义构造器用于设置初始值  通过扩展以增加默认实现之外的功能  遵循协议以提供某种标准功能   类和结构体的不同点： 继承允许一个类继承另一个类的特征  类型转换允许在运行时检查和解释一个类实例的类型  析构器允许一个类实例释放任何其所分配的资源。">
+<meta property="og:description" content="一个类可以继承另一个类的方法，属性和其他特性。当一个类继承其他类时，继承类叫子类，被继承的类叫超类（或父类）。  定义一个基类 不继承其他类的类，称之为基类。  Swift中的类不从一个通用的基类继承而来。   子类生成 子类生成指的的是在一个已有类的基础上创建一个新的类。  123class SomeClass: SomeSuperclass &amp;#123;    // 这里是子类的定义&amp;#12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-03T01:50:51.278Z">
+<meta property="og:updated_time" content="2019-06-04T01:55:30.964Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift-类和结构体">
-<meta name="twitter:description" content="类的实例被称为对象。  结构体和类对比类和结构体的相同点： 定义属性用于存储值  定义方法用于提供功能  定义下标操作用于通过下标语法访问它们的值  定义构造器用于设置初始值  通过扩展以增加默认实现之外的功能  遵循协议以提供某种标准功能   类和结构体的不同点： 继承允许一个类继承另一个类的特征  类型转换允许在运行时检查和解释一个类实例的类型  析构器允许一个类实例释放任何其所分配的资源。">
+<meta name="twitter:title" content="Swift-继承">
+<meta name="twitter:description" content="一个类可以继承另一个类的方法，属性和其他特性。当一个类继承其他类时，继承类叫子类，被继承的类叫超类（或父类）。  定义一个基类 不继承其他类的类，称之为基类。  Swift中的类不从一个通用的基类继承而来。   子类生成 子类生成指的的是在一个已有类的基础上创建一个新的类。  123class SomeClass: SomeSuperclass &amp;#123;    // 这里是子类的定义&amp;#12">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/03/Swift-类和结构体/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/04/Swift-继承/">
 
 
 
 
 
-  <title>Swift-类和结构体 | 疯癫和尚</title>
+  <title>Swift-继承 | 疯癫和尚</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/03/Swift-类和结构体/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/Swift-继承/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="疯癫和尚">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Swift-类和结构体</h1>
+          <h1 class="post-title" itemprop="name headline">Swift-继承</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-03T09:50:51+08:00">
-                2019-06-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-04T09:55:30+08:00">
+                2019-06-04
               </time>
             
 
@@ -345,68 +345,60 @@
 
       
         <blockquote>
-<p>类的实例被称为对象。</p>
+<p>一个类可以继承另一个类的方法，属性和其他特性。当一个类继承其他类时，继承类叫子类，被继承的类叫超类（或父类）。</p>
 </blockquote>
-<h2 id="结构体和类对比"><a href="#结构体和类对比" class="headerlink" title="结构体和类对比"></a>结构体和类对比</h2><h3 id="类和结构体的相同点："><a href="#类和结构体的相同点：" class="headerlink" title="类和结构体的相同点："></a>类和结构体的相同点：</h3><ul>
-<li><p>定义属性用于存储值</p>
+<h2 id="定义一个基类"><a href="#定义一个基类" class="headerlink" title="定义一个基类"></a>定义一个基类</h2><ol>
+<li><p>不继承其他类的类，称之为基类。</p>
 </li>
-<li><p>定义方法用于提供功能</p>
+<li><p><code>Swift</code>中的类不从一个通用的基类继承而来。</p>
 </li>
-<li><p>定义下标操作用于通过下标语法访问它们的值</p>
+</ol>
+<h2 id="子类生成"><a href="#子类生成" class="headerlink" title="子类生成"></a>子类生成</h2><ol>
+<li><p>子类生成指的的是在一个已有类的基础上创建一个新的类。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>: <span class="title">SomeSuperclass</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 这里是子类的定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>定义构造器用于设置初始值</p>
+</ol>
+<h2 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h2><ol>
+<li><p>子类可以为继承来的实例方法，类方法，实例属性，类属性，或下标提供自己的实现，这种行为叫重写。</p>
 </li>
-<li><p>通过扩展以增加默认实现之外的功能</p>
+<li><p>使用<code>override</code>标记重写。</p>
 </li>
-<li><p>遵循协议以提供某种标准功能</p>
-</li>
+</ol>
+<h3 id="访问超类的方法，属性及下标"><a href="#访问超类的方法，属性及下标" class="headerlink" title="访问超类的方法，属性及下标"></a>访问超类的方法，属性及下标</h3><ol>
+<li>使用<code>super</code>前缀来访问超类的方法，属性或下标：<ul>
+<li>在方法 <code>someMethod()</code> 的重写实现中，可以通过 <code>super.someMethod()</code> 来调用超类版本的 <code>someMethod()</code> 方法。</li>
+<li>在属性 <code>someProperty</code> 的 <code>getter</code> 或 <code>setter</code> 的重写实现中，可以通过 <code>super.someProperty</code> 来访问超类版本的 <code>someProperty</code> 属性。</li>
+<li>在下标的重写实现中，可以通过 <code>super[someIndex]</code> 来访问超类版本中的相同下标。</li>
 </ul>
-<h3 id="类和结构体的不同点："><a href="#类和结构体的不同点：" class="headerlink" title="类和结构体的不同点："></a>类和结构体的不同点：</h3><ul>
-<li><p>继承允许一个类继承另一个类的特征</p>
-</li>
-<li><p>类型转换允许在运行时检查和解释一个类实例的类型</p>
-</li>
-<li><p>析构器允许一个类实例释放任何其所分配的资源。</p>
-</li>
-<li><p>引用计数允许对一个类的多次引用</p>
-</li>
-<li><p>结构体有一个自动生成的成员逐一构造器，类没有</p>
-</li>
-</ul>
-<h2 id="类型定义的语法"><a href="#类型定义的语法" class="headerlink" title="类型定义的语法"></a>类型定义的语法</h2><ol>
-<li><p><code>struct</code>关键字定义结构体，<code>class</code>关键字定义类。</p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SomeStructure</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 在这里定义结构体</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 在这里定义类</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>每当定义一个新的结构体或者类时，都是定义了一个新的<code>Swift</code>类型。</p>
-</li>
-<li><p>存储属性是与类或结构体绑定的，并存储在其中的常量或变量。</p>
-</li>
-<li><p>所有的结构体都有一个自动生成的成员逐一构造器，用于初始化新结构体实例中成员的属性。</p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Resolution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> height = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> vga = <span class="type">Resolution</span>(width: <span class="number">640</span>, height: <span class="number">480</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="结构体和枚举是值类型"><a href="#结构体和枚举是值类型" class="headerlink" title="结构体和枚举是值类型"></a>结构体和枚举是值类型</h2><ol>
-<li><p>值类型是这样一种类型，当它被赋值给一个变量、常量或者被传递给一个函数的时候，其值会被拷贝。</p>
+<h3 id="重写方法"><a href="#重写方法" class="headerlink" title="重写方法"></a>重写方法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Train</span>: <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Choo Choo"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="重写属性"><a href="#重写属性" class="headerlink" title="重写属性"></a>重写属性</h3><ol>
+<li>可以重写继承来的实例属性或类属性，提供定制的<code>getter</code>和<code>setter</code>，或添加属性观察器。</li>
+</ol>
+<h4 id="重写属性的Getter和Setter"><a href="#重写属性的Getter和Setter" class="headerlink" title="重写属性的Getter和Setter"></a>重写属性的<code>Getter</code>和<code>Setter</code></h4><ol>
+<li><p>子类并不知道继承来的属性是存储型的还是计算型的，只知道继承来的属性会有一个名字和类型。</p>
 </li>
-<li><p><code>Swift</code> 中所有的基本类型：整数（integer）、浮点数（floating-point number）、布尔值（boolean）、字符串（string)、数组（array）和字典（dictionary），都是值类型，其底层也是使用结构体实现的。</p>
+<li><p>重写一个属性是，必须将它的名字和类型都写出来，是编译器能去检查重写的属性是与超类中同名同类型的属性相匹配。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> currentSpeed = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"traveling at \(currentSpeed) miles per hour"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// 什么也不做——因为车辆不一定会有噪音</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutomaticCar</span>: <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> currentSpeed: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            gear = <span class="type">Int</span>(currentSpeed / <span class="number">10.0</span>) + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>结构体和枚举的实例，以及实例中所包含的任何值类型的属性，在代码传递的时候都会被复制。</p>
+<li><p>可以将继承来的只读属性重写为一个读写属性，只需提供<code>setter</code>和<code>getter</code>方法。</p>
 </li>
-<li><p><code>Swift</code>对值类型的复制进行了优化，新的值类型不会立刻被复制,而是和原值类型共享一份内存，在某个副本要被修改前，才会进行复制。</p>
+<li><p>不可以将一个继承来的读写属性重写为一个只读属性。</p>
 </li>
 </ol>
-<h2 id="类是引用类型"><a href="#类是引用类型" class="headerlink" title="类是引用类型"></a>类是引用类型</h2><ol>
-<li><p>引用类型在被赋值到一个变量、常量或被传递到一个函数时，其值不会被复制，使用的是已经存在实例的引用，而不是拷贝。</p>
+<h4 id="重写属性观察器"><a href="#重写属性观察器" class="headerlink" title="重写属性观察器"></a>重写属性观察器</h4><ol>
+<li><p>可以通过重写属性为继承来的属性添加属性观察器。</p>
 </li>
-<li><p>类的实例被声明为常量，仍然可以修改属性值。因为声明的常量只是对类的实例的引用，改变类的实例的属性并没有修改声明的常量的引用值。</p>
+<li><p>不可以为继承来的常量存储型属性或只读计算型属性添加属性观察器，因为这些属性的值是不可以被设置的。</p>
+</li>
+<li><p>不可以同时提供重写的<code>setter</code>和属性观察器。</p>
 </li>
 </ol>
-<h3 id="恒等运算符"><a href="#恒等运算符" class="headerlink" title="恒等运算符"></a>恒等运算符</h3><ol>
-<li><p>判断两个常量或变量是否引用同一个类实例用恒等运算符：<code>相同(===)</code>和<code>不相同(!==)</code>。</p>
+<h2 id="防止重写"><a href="#防止重写" class="headerlink" title="防止重写"></a>防止重写</h2><ol>
+<li><p>把属性，方法或下标标记为<code>final</code>防止重写。</p>
 </li>
-<li><p><code>相同(===)</code>和<code>等于(==)</code>是不同的，<code>相同(===)</code>表示两个常量或变量引用同一个类实例，<code>等于(==)</code>表示两个实例的值相等或等价。</p>
-</li>
-<li><p>Swift 中引用了某个引用类型实例的常量或变量，与 C 语言中的指针类似，不过它并不直接指向某个内存地址，也不要求你使用星号（*）来表明你在创建一个引用</p>
+<li><p>使用<code>final class</code>来将整个类标记为<code>final</code>，这样的类不可以被继承。</p>
 </li>
 </ol>
 
@@ -439,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/31/Swift-枚举/" rel="next" title="Swift-枚举">
-                <i class="fa fa-chevron-left"></i> Swift-枚举
+              <a href="/2019/06/03/Swift-下标/" rel="next" title="Swift-下标">
+                <i class="fa fa-chevron-left"></i> Swift-下标
               </a>
             
           </div>
@@ -448,10 +440,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/03/Swift-属性/" rel="prev" title="Swift-属性">
-                Swift-属性 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -592,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体和类对比"><span class="nav-number">1.</span> <span class="nav-text">结构体和类对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类和结构体的相同点："><span class="nav-number">1.1.</span> <span class="nav-text">类和结构体的相同点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类和结构体的不同点："><span class="nav-number">1.2.</span> <span class="nav-text">类和结构体的不同点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型定义的语法"><span class="nav-number">2.</span> <span class="nav-text">类型定义的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体和枚举是值类型"><span class="nav-number">3.</span> <span class="nav-text">结构体和枚举是值类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类是引用类型"><span class="nav-number">4.</span> <span class="nav-text">类是引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#恒等运算符"><span class="nav-number">4.1.</span> <span class="nav-text">恒等运算符</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义一个基类"><span class="nav-number">1.</span> <span class="nav-text">定义一个基类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子类生成"><span class="nav-number">2.</span> <span class="nav-text">子类生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重写"><span class="nav-number">3.</span> <span class="nav-text">重写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#访问超类的方法，属性及下标"><span class="nav-number">3.1.</span> <span class="nav-text">访问超类的方法，属性及下标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重写方法"><span class="nav-number">3.2.</span> <span class="nav-text">重写方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重写属性"><span class="nav-number">3.3.</span> <span class="nav-text">重写属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重写属性的Getter和Setter"><span class="nav-number">3.3.1.</span> <span class="nav-text">重写属性的Getter和Setter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重写属性观察器"><span class="nav-number">3.3.2.</span> <span class="nav-text">重写属性观察器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防止重写"><span class="nav-number">4.</span> <span class="nav-text">防止重写</span></a></li></ol></div>
             
 
           </div>
