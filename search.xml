@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Swift-析构过程</title>
+      <link href="/2019/06/05/Swift-%E6%9E%90%E6%9E%84%E8%BF%87%E7%A8%8B/"/>
+      <url>/2019/06/05/Swift-%E6%9E%90%E6%9E%84%E8%BF%87%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>析构器只适用于类类型，当一个类的实例被释放之前，析构器会被立即调用。析构器用关键字<code>deinit</code>来标记。</p></blockquote><h2 id="析构过程原理"><a href="#析构过程原理" class="headerlink" title="析构过程原理"></a>析构过程原理</h2><ol><li><p><code>Swift</code>通过自动引用计数（ARC）处理实例的内存管理。</p></li><li><p>每个类最多只能有一个析构器，析构器是在实例释放发生前被自动调用，不能主动调用。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">deinit</span> &#123;</span><br><span class="line">    <span class="comment">// 执行析构过程</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>子类继承父类的析构器，并且在子类析构器实现的最后，父类的析构器会被自动调用。</p></li><li><p>子类没有提供自己的析构器，父类的析构器也会被调用。</p></li><li><p>类的实例是在析构器调用后才会被释放，所有析构器可以访问实例的所有属性。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swift基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Swift-构造过程</title>
       <link href="/2019/06/04/Swift-%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B/"/>
       <url>/2019/06/04/Swift-%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B/</url>
