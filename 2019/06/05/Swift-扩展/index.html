@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Swift基础,">
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="唯学而已">
-<meta property="og:type" content="website">
-<meta property="og:title" content="疯癫和尚">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta name="description" content="扩展可以给一个现有的类，结构体，枚举，协议添加新的功能。  可以不需要访问被扩展类型源代码就能完成扩展（逆向建模）。与OC的分类相似，扩展没有名称。  Swift中扩展的功能：  添加计算型实例属性和计算型类属性。 定义实例方法和类方法。 提供新的构造器。 定义下标。 定义和使用新的嵌套类型。 使类型遵循协议。   扩展不能重写已经存在的功能。  扩展使用extension关键字声明：  123">
+<meta name="keywords" content="Swift基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift-扩展">
+<meta property="og:url" content="http://yoursite.com/2019/06/05/Swift-扩展/index.html">
 <meta property="og:site_name" content="疯癫和尚">
-<meta property="og:description" content="唯学而已">
+<meta property="og:description" content="扩展可以给一个现有的类，结构体，枚举，协议添加新的功能。  可以不需要访问被扩展类型源代码就能完成扩展（逆向建模）。与OC的分类相似，扩展没有名称。  Swift中扩展的功能：  添加计算型实例属性和计算型类属性。 定义实例方法和类方法。 提供新的构造器。 定义下标。 定义和使用新的嵌套类型。 使类型遵循协议。   扩展不能重写已经存在的功能。  扩展使用extension关键字声明：  123">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-05T08:12:20.354Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="疯癫和尚">
-<meta name="twitter:description" content="唯学而已">
+<meta name="twitter:title" content="Swift-扩展">
+<meta name="twitter:description" content="扩展可以给一个现有的类，结构体，枚举，协议添加新的功能。  可以不需要访问被扩展类型源代码就能完成扩展（逆向建模）。与OC的分类相似，扩展没有名称。  Swift中扩展的功能：  添加计算型实例属性和计算型类属性。 定义实例方法和类方法。 提供新的构造器。 定义下标。 定义和使用新的嵌套类型。 使类型遵循协议。   扩展不能重写已经存在的功能。  扩展使用extension关键字声明：  123">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/05/Swift-扩展/">
 
 
 
 
 
-  <title>归档 | 疯癫和尚</title>
+  <title>Swift-扩展 | 疯癫和尚</title>
   
 
 
@@ -145,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,391 +241,201 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/Swift-扩展/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="疯癫和尚">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/12480682?s=400&u=0cf289ab830e5f2a5d3cb5d83685f9144a1b12fb&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="疯癫和尚">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Swift-扩展</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T16:12:20+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 20 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/06/05/Swift-扩展/" itemprop="url">
-              
-                <span itemprop="name">Swift-扩展</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-05T16:12:20+08:00" content="2019-06-05">
-          06-05
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/06/05/Swift-嵌套类型/" itemprop="url">
-              
-                <span itemprop="name">Swift-嵌套类型</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-05T15:14:14+08:00" content="2019-06-05">
-          06-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/06/05/Swift-类型转换/" itemprop="url">
-              
-                <span itemprop="name">Swift-类型转换</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-05T14:55:17+08:00" content="2019-06-05">
-          06-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <ol>
+<li><p>扩展可以给一个现有的类，结构体，枚举，协议添加新的功能。</p>
+</li>
+<li><p>可以不需要访问被扩展类型源代码就能完成扩展（逆向建模）。与<code>OC</code>的分类相似，扩展没有名称。</p>
+</li>
+<li><p><code>Swift</code>中扩展的功能：</p>
+<ul>
+<li>添加计算型实例属性和计算型类属性。</li>
+<li>定义实例方法和类方法。</li>
+<li>提供新的构造器。</li>
+<li>定义下标。</li>
+<li>定义和使用新的嵌套类型。</li>
+<li>使类型遵循协议。</li>
+</ul>
+</li>
+<li><p>扩展不能重写已经存在的功能。</p>
+</li>
+<li><p>扩展使用<code>extension</code>关键字声明：</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SomeType</span> </span>&#123;</span><br><span class="line"><span class="comment">// 在这里给 SomeType 添加新的功能</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>扩展可以使类遵循协议：</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SomeType</span>: <span class="title">SomeProtocol</span>, <span class="title">AnotherProtocol</span> </span>&#123;</span><br><span class="line"><span class="comment">// 协议所需要的实现写在这里</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>扩展不能添加存储型属性，或向现有的属性添加属性观察者。</p>
+</li>
+<li><p>扩展不能给类添加新的指定构造器，可以给类添加新的便利构造器。</p>
+</li>
+<li><p>指定构造器和析构器必须始终有类的原始实现提供。</p>
+</li>
+<li><p>通过扩展添加的实例方法也可以修改实例本身。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Int</span> </span>&#123;</span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">square</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">self</span> = <span class="keyword">self</span> * <span class="keyword">self</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> someInt = <span class="number">3</span></span><br><span class="line">someInt.square()</span><br><span class="line"><span class="comment">// someInt 现在是 9</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/06/05/Swift-错误处理/" itemprop="url">
-              
-                <span itemprop="name">Swift-错误处理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-05T11:08:01+08:00" content="2019-06-05">
-          06-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/06/05/Swift-可选链/" itemprop="url">
-              
-                <span itemprop="name">Swift-可选链</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-05T10:23:13+08:00" content="2019-06-05">
-          06-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/06/05/Swift-析构过程/" itemprop="url">
-              
-                <span itemprop="name">Swift-析构过程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-05T09:37:49+08:00" content="2019-06-05">
-          06-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/06/04/Swift-构造过程/" itemprop="url">
-              
-                <span itemprop="name">Swift-构造过程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-04T17:32:21+08:00" content="2019-06-04">
-          06-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/06/04/Swift-继承/" itemprop="url">
-              
-                <span itemprop="name">Swift-继承</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-04T09:55:30+08:00" content="2019-06-04">
-          06-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/06/03/Swift-下标/" itemprop="url">
-              
-                <span itemprop="name">Swift-下标</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-03T16:53:29+08:00" content="2019-06-03">
-          06-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/06/03/Swift-属性/" itemprop="url">
-              
-                <span itemprop="name">Swift-属性</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-03T14:57:26+08:00" content="2019-06-03">
-          06-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift基础/" rel="tag"># Swift基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/05/Swift-嵌套类型/" rel="next" title="Swift-嵌套类型">
+                <i class="fa fa-chevron-left"></i> Swift-嵌套类型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -631,6 +443,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -854,6 +670,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
