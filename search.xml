@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Swift-泛型</title>
+      <link href="/2019/06/17/Swift-%E6%B3%9B%E5%9E%8B/"/>
+      <url>/2019/06/17/Swift-%E6%B3%9B%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>泛型代码能根据自定义的需求，编写出适用于任意类型的，灵活可复用的函数及类型。</p></li><li><p>泛型函数使用<code>占位符</code>类型名,而不是实际类型名。<code>占位符</code>类型名并不关心具体的类型，只要求必须<code>a</code>和<code>b</code>是相同类型。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapTwoInts</span><span class="params">(<span class="number">_</span> a: <span class="keyword">inout</span> Int, <span class="number">_</span> b: <span class="keyword">inout</span> Int)</span></span> &#123;</span><br><span class="line">&#125;<span class="comment">//非泛型函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapTwoValues</span>&lt;T&gt;<span class="params">(<span class="number">_</span> a: <span class="keyword">inout</span> T, <span class="number">_</span> b: <span class="keyword">inout</span> T)</span></span> &#123;</span><br><span class="line">&#125;<span class="comment">//泛型函数，&lt;T&gt;就是站位类型名。&lt;T&gt;术语叫做类型参数。</span></span><br></pre></td></tr></table></figure></li><li><p>类型约束指定类型参数必须继承自指定类、遵循特定的协议或协议组合。类型约束的定义：</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someFunction</span>&lt;T: SomeClass, U: SomeProtocol&gt;<span class="params">(someT: T, someU: U)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 这里是泛型函数的函数体部分</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>关联类型为协议中的某个类型提供一个占位符名称，其代表的实际类型在协议被遵循时才会被指定。通过关键字<code>associatedtype</code>来指定。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Container</span> </span>&#123;</span><br><span class="line">    <span class="keyword">associatedtype</span> <span class="type">Item</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(<span class="number">_</span> item: Item)</span></span></span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="keyword">subscript</span>(i: <span class="type">Int</span>) -&gt; <span class="type">Item</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>下标可以是泛型的，可以包含泛型<code>where</code>子句。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Container</span> </span>&#123;</span><br><span class="line">    <span class="keyword">subscript</span>&lt;<span class="type">Indices</span>: <span class="type">Sequence</span>&gt;(<span class="built_in">indices</span>: <span class="type">Indices</span>) -&gt; [<span class="type">Item</span>]</span><br><span class="line">        <span class="keyword">where</span> <span class="type">Indices</span>.<span class="type">Iterator</span>.<span class="type">Element</span> == <span class="type">Int</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> result = [<span class="type">Item</span>]()</span><br><span class="line">            <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">indices</span> &#123;</span><br><span class="line">                result.append(<span class="keyword">self</span>[index])</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> result</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swift基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Swift-协议</title>
       <link href="/2019/06/17/Swift-%E5%8D%8F%E8%AE%AE/"/>
       <url>/2019/06/17/Swift-%E5%8D%8F%E8%AE%AE/</url>

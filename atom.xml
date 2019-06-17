@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-17T04:40:48.868Z</updated>
+  <updated>2019-06-17T08:38:28.115Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift-泛型</title>
+    <link href="http://yoursite.com/2019/06/17/Swift-%E6%B3%9B%E5%9E%8B/"/>
+    <id>http://yoursite.com/2019/06/17/Swift-泛型/</id>
+    <published>2019-06-17T08:38:28.000Z</published>
+    <updated>2019-06-17T08:38:28.115Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>泛型代码能根据自定义的需求，编写出适用于任意类型的，灵活可复用的函数及类型。</p></li><li><p>泛型函数使用<code>占位符</code>类型名,而不是实际类型名。<code>占位符</code>类型名并不关心具体的类型，只要求必须<code>a</code>和<code>b</code>是相同类型。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapTwoInts</span><span class="params">(<span class="number">_</span> a: <span class="keyword">inout</span> Int, <span class="number">_</span> b: <span class="keyword">inout</span> Int)</span></span> &#123;</span><br><span class="line">&#125;<span class="comment">//非泛型函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapTwoValues</span>&lt;T&gt;<span class="params">(<span class="number">_</span> a: <span class="keyword">inout</span> T, <span class="number">_</span> b: <span class="keyword">inout</span> T)</span></span> &#123;</span><br><span class="line">&#125;<span class="comment">//泛型函数，&lt;T&gt;就是站位类型名。&lt;T&gt;术语叫做类型参数。</span></span><br></pre></td></tr></table></figure></li><li><p>类型约束指定类型参数必须继承自指定类、遵循特定的协议或协议组合。类型约束的定义：</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someFunction</span>&lt;T: SomeClass, U: SomeProtocol&gt;<span class="params">(someT: T, someU: U)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 这里是泛型函数的函数体部分</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>关联类型为协议中的某个类型提供一个占位符名称，其代表的实际类型在协议被遵循时才会被指定。通过关键字<code>associatedtype</code>来指定。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Container</span> </span>&#123;</span><br><span class="line">    <span class="keyword">associatedtype</span> <span class="type">Item</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(<span class="number">_</span> item: Item)</span></span></span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="keyword">subscript</span>(i: <span class="type">Int</span>) -&gt; <span class="type">Item</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>下标可以是泛型的，可以包含泛型<code>where</code>子句。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Container</span> </span>&#123;</span><br><span class="line">    <span class="keyword">subscript</span>&lt;<span class="type">Indices</span>: <span class="type">Sequence</span>&gt;(<span class="built_in">indices</span>: <span class="type">Indices</span>) -&gt; [<span class="type">Item</span>]</span><br><span class="line">        <span class="keyword">where</span> <span class="type">Indices</span>.<span class="type">Iterator</span>.<span class="type">Element</span> == <span class="type">Int</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> result = [<span class="type">Item</span>]()</span><br><span class="line">            <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">indices</span> &#123;</span><br><span class="line">                result.append(<span class="keyword">self</span>[index])</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> result</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;泛型代码能根据自定义的需求，编写出适用于任意类型的，灵活可复用的函数及类型。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;泛型函数使用&lt;code&gt;占位符&lt;/code&gt;类型名,而不是实际类型名。&lt;code&gt;占位符&lt;/code&gt;类型名并不关心具体的类型，只要求必须&lt;co
+      
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Swift基础" scheme="http://yoursite.com/tags/Swift%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift-协议</title>
@@ -541,33 +569,6 @@
       
         &lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;Swift&lt;/code&gt;的字符串通过&lt;code&gt;String&lt;/code&gt;类型来表示。&lt;code&gt;Swift&lt;/code&gt;中的&lt;code&gt;String&lt;/code&gt;类型与&lt;code&gt;Foundation&lt;/code&gt;中的&lt;code&gt;NS
-      
-    
-    </summary>
-    
-      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Swift基础" scheme="http://yoursite.com/tags/Swift%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift-基本运算符</title>
-    <link href="http://yoursite.com/2019/05/27/Swift-%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
-    <id>http://yoursite.com/2019/05/27/Swift-基本运算符/</id>
-    <published>2019-05-27T08:33:40.000Z</published>
-    <updated>2019-05-27T08:34:27.789Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><ol><li><p>赋值的右边是一个多元组，它的元素会被分解多个常量和变量。</p><pre><code><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> (x, y) = (<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="comment">// 现在 x 等于 1，y 等于 2</span></span><br></pre></td></tr></table></figure></code></pre></li><li><p>Swift的赋值操作并不返回任何值。<code>C</code>和<code>OC</code>是返回值得。</p></li></ol><h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><ol><li><code>Swift</code>默认情况下不允许在数值运算中出现溢出的情况。</li></ol><h2 id="组合赋值运算符"><a href="#组合赋值运算符" class="headerlink" title="组合赋值运算符"></a>组合赋值运算符</h2><ol><li><code>let b = a += 2</code>是错误的，因为复合赋值运算没有返回值，<code>a += 2</code>是没有返回值的。</li></ol><h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><ol><li><p><code>Swift</code> 也提供恒等<code>（===）</code>和不恒等<code>（!==）</code>这两个比较符来判断两个对象是否引用同一个对象实例。</p></li><li><p>元组的元素相同，且长度相同，元组就可以被比较。元组的比较会从左到右逐个比较，知道发现有两个值相等时停止。</p><pre><code><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>, <span class="string">"zebra"</span>) &lt; (<span class="number">2</span>, <span class="string">"apple"</span>)   <span class="comment">// true，因为 1 小于 2</span></span><br><span class="line">(<span class="number">3</span>, <span class="string">"apple"</span>) &lt; (<span class="number">3</span>, <span class="string">"bird"</span>)    <span class="comment">// true，因为 3 等于 3，但是 apple 小于 bird</span></span><br><span class="line">(<span class="number">4</span>, <span class="string">"dog"</span>) == (<span class="number">4</span>, <span class="string">"dog"</span>)      <span class="comment">// true，因为 4 等于 4，dog 等于 dog</span></span><br></pre></td></tr></table></figure></code></pre></li><li><p><code>Bool</code>不能被比较，所以含有布尔类型的元组不能被比较。</p></li><li><p><code>Swift</code> 标准库只能比较七个以内元素的元组比较函数。如果你的元组元素超过七个时，你需要自己实现比较运算符。</p></li></ol><h2 id="空合运算符"><a href="#空合运算符" class="headerlink" title="空合运算符"></a>空合运算符</h2><ol><li>空合运算符<code>(a ?? b)</code>将对可选类型<code>a</code>进行空判断，如果<code>a</code>包含一个值就解包，否则返回一个默认值<code>b</code>。表达式 <code>a</code> 必须是 <code>Optional</code> 类型。默认值 <code>b</code> 的类型必须要和 <code>a</code> 存储值的类型保持一致。</li><li><p>空合运算符是对下面代码的简写：</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a != <span class="literal">nil</span> ? a! : b</span><br></pre></td></tr></table></figure></li></ol><h2 id="区间运算符"><a href="#区间运算符" class="headerlink" title="区间运算符"></a>区间运算符</h2><ol><li><p>闭区间运算符<code>(a...b)</code>定义一个从<code>a</code>到<code>b</code>的所有值的区间。</p></li><li><p>半开区间运算符<code>(a..&lt;b)</code>定义一个从<code>a</code>到<code>b</code>但不包含<code>b</code>的区间。</p></li></ol><h3 id="单侧区间"><a href="#单侧区间" class="headerlink" title="单侧区间"></a>单侧区间</h3><ol><li><p>闭区间操作符有另一表达形式，表达往一侧无限延伸的区间。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names[<span class="number">2</span>...] &#123;</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Brian</span></span><br><span class="line"><span class="comment">// Jack</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names[...<span class="number">2</span>] &#123;</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Anna</span></span><br><span class="line"><span class="comment">// Alex</span></span><br><span class="line"><span class="comment">// Brian</span></span><br></pre></td></tr></table></figure></li><li><p>半开区间操作符也有单侧表达式。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names[..&lt;<span class="number">2</span>] &#123;</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Anna</span></span><br><span class="line"><span class="comment">// Alex</span></span><br></pre></td></tr></table></figure></li><li><p>不能遍历省略了初始值的单侧区间，因为遍历的开端并不明显。</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;赋值运算符&quot;&gt;&lt;a href=&quot;#赋值运算符&quot; class=&quot;headerlink&quot; title=&quot;赋值运算符&quot;&gt;&lt;/a&gt;赋值运算符&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;赋值的右边是一个多元组，它的元素会被分解多个常量和变量。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&lt;figu
       
     
     </summary>
