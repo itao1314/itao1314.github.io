@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-18T07:44:23.501Z</updated>
+  <updated>2019-06-18T08:48:25.399Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift-内存安全</title>
+    <link href="http://yoursite.com/2019/06/18/Swift-%E5%86%85%E5%AD%98%E5%AE%89%E5%85%A8/"/>
+    <id>http://yoursite.com/2019/06/18/Swift-内存安全/</id>
+    <published>2019-06-18T08:48:25.000Z</published>
+    <updated>2019-06-18T08:48:25.399Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>函数会对<code>inout</code>参数进行长期写访问。</p></li><li><p><code>inout</code>函数的写访问会在非<code>inout</code>参数处理完之后开始，直到函数结束。</p></li><li><p>多个<code>inout</code>参数的写访问顺序跟参数顺序一致。</p></li><li><p>往一个函数的多个<code>inout</code>参数传入同一个变量也会产生冲突。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;函数会对&lt;code&gt;inout&lt;/code&gt;参数进行长期写访问。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;inout&lt;/code&gt;函数的写访问会在非&lt;code&gt;inout&lt;/code&gt;参数处理完之后开始，直到函数结束。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Swift基础" scheme="http://yoursite.com/tags/Swift%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift-自动引用计数</title>
@@ -469,35 +499,6 @@
   </entry>
   
   <entry>
-    <title>Swift-方法</title>
-    <link href="http://yoursite.com/2019/05/29/Swift-%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2019/05/29/Swift-方法/</id>
-    <published>2019-05-29T08:41:27.000Z</published>
-    <updated>2019-06-03T08:27:10.558Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>类、结构体、枚举都可以定义实例方法和类型方法。</p></blockquote><h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><ol><li><p>实例方法是属于某个特定类、结构体、枚举类型实例的方法。</p></li><li><p>方法就是函数，只是函数与某个类型相关联了。</p></li><li><p>方法的参数名称和实例的属性名称相同时，参数名称享有优先权，此时使用<code>self</code>属性来区分参数名称和属性名称。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">isToTheRightOf</span><span class="params">(x: Double)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.x &gt; x</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> somePoint = <span class="type">Point</span>(x: <span class="number">4.0</span>, y: <span class="number">5.0</span>)</span><br><span class="line"><span class="keyword">if</span> somePoint.isToTheRightOf(x: <span class="number">1.0</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"This point is to the right of the line where x == 1.0"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印“This point is to the right of the line where x == 1.0”</span></span><br></pre></td></tr></table></figure></li></ol><h3 id="在实例方法中修改值类型"><a href="#在实例方法中修改值类型" class="headerlink" title="在实例方法中修改值类型"></a>在实例方法中修改值类型</h3><ol><li><p>结构体和枚举是值类型。默认情况下，值类型的属性不能再它的实例方法中被修改。</p></li><li><p>如果要在结构体或枚举的实例方法中修改属性，可以在方法前加上关键字<code>mutating</code>。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">moveBy</span><span class="params">(x deltaX: Double, y deltaY: Double)</span></span> &#123;</span><br><span class="line">        x += deltaX</span><br><span class="line">        y += deltaY</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> somePoint = <span class="type">Point</span>(x: <span class="number">1.0</span>, y: <span class="number">1.0</span>)</span><br><span class="line">somePoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The point is now at (\(somePoint.x), \(somePoint.y))"</span>)</span><br><span class="line"><span class="comment">// 打印“The point is now at (3.0, 4.0)”</span></span><br></pre></td></tr></table></figure></li><li><p>不能在枚举或结构体的常量上调用可变方法，因为其属性不能被改变，即使属性是变量属性。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fixedPoint = <span class="type">Point</span>(x: <span class="number">3.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line">fixedPoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="comment">// 这里将会报告一个错误</span></span><br></pre></td></tr></table></figure></li></ol><h2 id="类型方法"><a href="#类型方法" class="headerlink" title="类型方法"></a>类型方法</h2><ol><li><p>在方法的<code>func</code>关键字之前加上关键字 <code>static</code>，来指定类型方法。类还可以用关键字 <code>class</code> 来允许子类重写父类的方法实现。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">someTypeMethod</span>() </span>&#123;</span><br><span class="line">        <span class="comment">// 在这里实现类型方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">SomeClass</span>.someTypeMethod()</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;类、结构体、枚举都可以定义实例方法和类型方法。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;实例方法&quot;&gt;&lt;a href=&quot;#实例方法&quot; class=&quot;headerlink&quot; title=&quot;实例方法&quot;&gt;&lt;/a&gt;实例方法&lt;/h2&gt;&lt;ol&gt;
-&lt;l
-      
-    
-    </summary>
-    
-      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Swift基础" scheme="http://yoursite.com/tags/Swift%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Swift-函数</title>
     <link href="http://yoursite.com/2019/05/29/Swift-%E5%87%BD%E6%95%B0/"/>
     <id>http://yoursite.com/2019/05/29/Swift-函数/</id>
@@ -528,6 +529,35 @@
   </entry>
   
   <entry>
+    <title>Swift-方法</title>
+    <link href="http://yoursite.com/2019/05/29/Swift-%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/05/29/Swift-方法/</id>
+    <published>2019-05-29T08:41:27.000Z</published>
+    <updated>2019-06-03T08:27:10.558Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>类、结构体、枚举都可以定义实例方法和类型方法。</p></blockquote><h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><ol><li><p>实例方法是属于某个特定类、结构体、枚举类型实例的方法。</p></li><li><p>方法就是函数，只是函数与某个类型相关联了。</p></li><li><p>方法的参数名称和实例的属性名称相同时，参数名称享有优先权，此时使用<code>self</code>属性来区分参数名称和属性名称。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">isToTheRightOf</span><span class="params">(x: Double)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.x &gt; x</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> somePoint = <span class="type">Point</span>(x: <span class="number">4.0</span>, y: <span class="number">5.0</span>)</span><br><span class="line"><span class="keyword">if</span> somePoint.isToTheRightOf(x: <span class="number">1.0</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"This point is to the right of the line where x == 1.0"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印“This point is to the right of the line where x == 1.0”</span></span><br></pre></td></tr></table></figure></li></ol><h3 id="在实例方法中修改值类型"><a href="#在实例方法中修改值类型" class="headerlink" title="在实例方法中修改值类型"></a>在实例方法中修改值类型</h3><ol><li><p>结构体和枚举是值类型。默认情况下，值类型的属性不能再它的实例方法中被修改。</p></li><li><p>如果要在结构体或枚举的实例方法中修改属性，可以在方法前加上关键字<code>mutating</code>。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">moveBy</span><span class="params">(x deltaX: Double, y deltaY: Double)</span></span> &#123;</span><br><span class="line">        x += deltaX</span><br><span class="line">        y += deltaY</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> somePoint = <span class="type">Point</span>(x: <span class="number">1.0</span>, y: <span class="number">1.0</span>)</span><br><span class="line">somePoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The point is now at (\(somePoint.x), \(somePoint.y))"</span>)</span><br><span class="line"><span class="comment">// 打印“The point is now at (3.0, 4.0)”</span></span><br></pre></td></tr></table></figure></li><li><p>不能在枚举或结构体的常量上调用可变方法，因为其属性不能被改变，即使属性是变量属性。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fixedPoint = <span class="type">Point</span>(x: <span class="number">3.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line">fixedPoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="comment">// 这里将会报告一个错误</span></span><br></pre></td></tr></table></figure></li></ol><h2 id="类型方法"><a href="#类型方法" class="headerlink" title="类型方法"></a>类型方法</h2><ol><li><p>在方法的<code>func</code>关键字之前加上关键字 <code>static</code>，来指定类型方法。类还可以用关键字 <code>class</code> 来允许子类重写父类的方法实现。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">someTypeMethod</span>() </span>&#123;</span><br><span class="line">        <span class="comment">// 在这里实现类型方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">SomeClass</span>.someTypeMethod()</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;类、结构体、枚举都可以定义实例方法和类型方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;实例方法&quot;&gt;&lt;a href=&quot;#实例方法&quot; class=&quot;headerlink&quot; title=&quot;实例方法&quot;&gt;&lt;/a&gt;实例方法&lt;/h2&gt;&lt;ol&gt;
+&lt;l
+      
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Swift基础" scheme="http://yoursite.com/tags/Swift%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Swift-控制流</title>
     <link href="http://yoursite.com/2019/05/29/Swift-%E6%8E%A7%E5%88%B6%E6%B5%81/"/>
     <id>http://yoursite.com/2019/05/29/Swift-控制流/</id>
@@ -545,34 +575,6 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code&gt;while&lt;/code&gt;循环，每次在循环开始时计算条件是否符合。&lt;/p&gt;
  &lt;
-      
-    
-    </summary>
-    
-      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Swift基础" scheme="http://yoursite.com/tags/Swift%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift-集合类型</title>
-    <link href="http://yoursite.com/2019/05/28/Swift-%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B/"/>
-    <id>http://yoursite.com/2019/05/28/Swift-集合类型/</id>
-    <published>2019-05-28T08:24:25.000Z</published>
-    <updated>2019-05-28T08:24:25.182Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p><code>Swift</code>用<code>Array</code>、<code>Sets</code>、<code>Dictionaries</code>三种基本的集合类型用来存储集合数据。</p></li><li><p><code>Array</code>是有序数据的集。</p></li><li><p><code>Sets</code>是无序无重复数据的集。</p></li><li><p><code>Dictionaries</code>是无序的键值对的集。</p><p> <img src="/2019/05/28/Swift-集合类型/CollectionTypes_intro_2x.png" alt="BP"></p></li><li><p><code>Swift</code>的集合类型存储的数据值类型必须明确。</p></li><li><p>创建一个数组：</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> someArray = [<span class="type">Element</span>]() <span class="comment">//空数组，Element是这个数组中唯一允许存在的数据类型。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> shoppingList: [<span class="type">String</span>] = [<span class="string">"Eggs"</span>, <span class="string">"Milk"</span>]<span class="comment">//数组字面量构造数组</span></span><br></pre></td></tr></table></figure></li><li><p>使用下标来一次改变一系列的数据值，即使新数据和原有数据的数量不一样。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shoppingList[<span class="number">4</span>...<span class="number">6</span>] = [<span class="string">"Bananas"</span>, <span class="string">"Apples"</span>]</span><br><span class="line"><span class="comment">// shoppingList 现在有6项</span></span><br></pre></td></tr></table></figure></li><li><p>不可以使用下标访问的形式去在数组尾部添加一个新元素。</p></li><li><p>一个类型必须是可哈希化的才可以存储在<code>Sets</code>中。</p></li><li><p>哈希值是<code>Int</code>类型的，相等的对象哈希值必须是相同的。</p></li><li><p><code>Swift</code>的基本数据类型都是可哈希化得。</p></li><li><p>没有关联值的枚举成员值默认也是可哈希化的。</p></li><li><p>自定义类型的想要做为<code>Sets</code>的值或者<code>Dictionaries</code>的<code>key</code>，必须实现<code>Hashable</code>协议。</p></li><li><p>创建一个空<code>Sets</code>：</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> someElement = <span class="type">Set</span>&lt;<span class="type">Element</span>&gt;()<span class="comment">//Sets没有简化的等价形式</span></span><br></pre></td></tr></table></figure></li><li><p>使用数组字面量创建集合</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> favoriteGenres: <span class="type">Set</span>&lt;<span class="type">String</span>&gt; = [<span class="string">"Rock"</span>, <span class="string">"Classical"</span>, <span class="string">"Hip hop"</span>]</span><br><span class="line"><span class="comment">// favoriteGenres 被构造成含有三个初始值的集合</span></span><br><span class="line"><span class="comment">//一个Set类型不能从数组的字面量中被单独推断出来，因此Set类型必须被显示声明，但是&lt;String&gt;可以被推断。</span></span><br></pre></td></tr></table></figure></li><li><p>集合的操作</p><p><img src="/2019/05/28/Swift-集合类型/setVennDiagram_2x.png" alt="BP"></p></li><li><p><code>Swift</code>中使用<code>Dictionary&lt;Key, Value&gt;</code>定义，简化形式<code>[Key: Value]</code>。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> namesOfIntegers = [<span class="type">Int</span>: <span class="type">String</span>]()</span><br><span class="line"><span class="comment">// namesOfIntegers 是一个空的 [Int: String] 字典</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;Swift&lt;/code&gt;用&lt;code&gt;Array&lt;/code&gt;、&lt;code&gt;Sets&lt;/code&gt;、&lt;code&gt;Dictionaries&lt;/code&gt;三种基本的集合类型用来存储集合数据。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;Array
       
     
     </summary>
