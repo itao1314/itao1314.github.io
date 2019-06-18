@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-17T08:38:28.115Z</updated>
+  <updated>2019-06-18T07:44:23.501Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift-自动引用计数</title>
+    <link href="http://yoursite.com/2019/06/18/Swift-%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0/"/>
+    <id>http://yoursite.com/2019/06/18/Swift-自动引用计数/</id>
+    <published>2019-06-18T07:44:23.000Z</published>
+    <updated>2019-06-18T07:44:23.501Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p><code>Swift</code>使用自动引用计数机制来跟踪和管理应用程序的内存。</p></li><li><p>将类实例赋值给属性、常量、变量，它们都会创建此实例的强引用。</p></li><li><p>如果两个类实例互相持有对方的强引用，因此类实例的强引用数永远不能变为0，类实例不能被释放，称为循环强引用。</p></li><li><p>可以通过定义类之间的关系为弱引用或无主引用来解决循环强引用的问题。</p></li><li><p>弱引用和无主引用允许循环引用中的一个实例引用另一个实例而不保持强引用。</p></li><li><p>声明属性或者变量时，在前面加上<code>weak</code>关键字表明这是一个弱引用。</p></li><li><p><code>ARC</code>会在引用的实例被销毁后自动将其弱引用赋值为<code>nil</code>，弱引用需要在运行时被赋值为<code>nil</code>，所有需要被定义为可选类型的变量。</p></li><li><p>当<code>ARC</code>设置弱引用为<code>nil</code>时，属性观察器不会被触发。</p></li><li><p>在声明属性或变量时，在前面加上关键字<code>unowned</code>表示这是一个无主引用。</p></li><li><p>无主引用通常被期望拥有值。</p></li><li><p><code>ARC</code>无法再实例销毁后将无主引用设为<code>nil</code>，因为非可选类型的变量不允许被赋值为<code>nil</code>。</p></li><li><p>使用无主引用，必须确保引用始终指向一个未销毁的实例。</p></li><li><p>在闭包和捕获的实例总是互相引用并且总是同时销毁时，将闭包内的捕获定义为无主列表。在捕获的引用可能为<code>nil</code>时，将闭包定义为弱引用。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Swift&lt;/code&gt;使用自动引用计数机制来跟踪和管理应用程序的内存。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;将类实例赋值给属性、常量、变量，它们都会创建此实例的强引用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果两个类实例互相持有对方的强引用，因此
+      
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Swift基础" scheme="http://yoursite.com/tags/Swift%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift-泛型</title>
@@ -439,6 +469,35 @@
   </entry>
   
   <entry>
+    <title>Swift-方法</title>
+    <link href="http://yoursite.com/2019/05/29/Swift-%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/05/29/Swift-方法/</id>
+    <published>2019-05-29T08:41:27.000Z</published>
+    <updated>2019-06-03T08:27:10.558Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>类、结构体、枚举都可以定义实例方法和类型方法。</p></blockquote><h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><ol><li><p>实例方法是属于某个特定类、结构体、枚举类型实例的方法。</p></li><li><p>方法就是函数，只是函数与某个类型相关联了。</p></li><li><p>方法的参数名称和实例的属性名称相同时，参数名称享有优先权，此时使用<code>self</code>属性来区分参数名称和属性名称。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">isToTheRightOf</span><span class="params">(x: Double)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.x &gt; x</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> somePoint = <span class="type">Point</span>(x: <span class="number">4.0</span>, y: <span class="number">5.0</span>)</span><br><span class="line"><span class="keyword">if</span> somePoint.isToTheRightOf(x: <span class="number">1.0</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"This point is to the right of the line where x == 1.0"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印“This point is to the right of the line where x == 1.0”</span></span><br></pre></td></tr></table></figure></li></ol><h3 id="在实例方法中修改值类型"><a href="#在实例方法中修改值类型" class="headerlink" title="在实例方法中修改值类型"></a>在实例方法中修改值类型</h3><ol><li><p>结构体和枚举是值类型。默认情况下，值类型的属性不能再它的实例方法中被修改。</p></li><li><p>如果要在结构体或枚举的实例方法中修改属性，可以在方法前加上关键字<code>mutating</code>。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">moveBy</span><span class="params">(x deltaX: Double, y deltaY: Double)</span></span> &#123;</span><br><span class="line">        x += deltaX</span><br><span class="line">        y += deltaY</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> somePoint = <span class="type">Point</span>(x: <span class="number">1.0</span>, y: <span class="number">1.0</span>)</span><br><span class="line">somePoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The point is now at (\(somePoint.x), \(somePoint.y))"</span>)</span><br><span class="line"><span class="comment">// 打印“The point is now at (3.0, 4.0)”</span></span><br></pre></td></tr></table></figure></li><li><p>不能在枚举或结构体的常量上调用可变方法，因为其属性不能被改变，即使属性是变量属性。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fixedPoint = <span class="type">Point</span>(x: <span class="number">3.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line">fixedPoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="comment">// 这里将会报告一个错误</span></span><br></pre></td></tr></table></figure></li></ol><h2 id="类型方法"><a href="#类型方法" class="headerlink" title="类型方法"></a>类型方法</h2><ol><li><p>在方法的<code>func</code>关键字之前加上关键字 <code>static</code>，来指定类型方法。类还可以用关键字 <code>class</code> 来允许子类重写父类的方法实现。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">someTypeMethod</span>() </span>&#123;</span><br><span class="line">        <span class="comment">// 在这里实现类型方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">SomeClass</span>.someTypeMethod()</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;类、结构体、枚举都可以定义实例方法和类型方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;实例方法&quot;&gt;&lt;a href=&quot;#实例方法&quot; class=&quot;headerlink&quot; title=&quot;实例方法&quot;&gt;&lt;/a&gt;实例方法&lt;/h2&gt;&lt;ol&gt;
+&lt;l
+      
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Swift基础" scheme="http://yoursite.com/tags/Swift%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Swift-函数</title>
     <link href="http://yoursite.com/2019/05/29/Swift-%E5%87%BD%E6%95%B0/"/>
     <id>http://yoursite.com/2019/05/29/Swift-函数/</id>
@@ -457,35 +516,6 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;使用元组类型让多个值作为一个复合值从函数中返回。&lt;/p&gt;
  &lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Swift基础" scheme="http://yoursite.com/tags/Swift%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift-方法</title>
-    <link href="http://yoursite.com/2019/05/29/Swift-%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2019/05/29/Swift-方法/</id>
-    <published>2019-05-29T08:41:27.000Z</published>
-    <updated>2019-06-03T08:27:10.558Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>类、结构体、枚举都可以定义实例方法和类型方法。</p></blockquote><h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><ol><li><p>实例方法是属于某个特定类、结构体、枚举类型实例的方法。</p></li><li><p>方法就是函数，只是函数与某个类型相关联了。</p></li><li><p>方法的参数名称和实例的属性名称相同时，参数名称享有优先权，此时使用<code>self</code>属性来区分参数名称和属性名称。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">isToTheRightOf</span><span class="params">(x: Double)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.x &gt; x</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> somePoint = <span class="type">Point</span>(x: <span class="number">4.0</span>, y: <span class="number">5.0</span>)</span><br><span class="line"><span class="keyword">if</span> somePoint.isToTheRightOf(x: <span class="number">1.0</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"This point is to the right of the line where x == 1.0"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印“This point is to the right of the line where x == 1.0”</span></span><br></pre></td></tr></table></figure></li></ol><h3 id="在实例方法中修改值类型"><a href="#在实例方法中修改值类型" class="headerlink" title="在实例方法中修改值类型"></a>在实例方法中修改值类型</h3><ol><li><p>结构体和枚举是值类型。默认情况下，值类型的属性不能再它的实例方法中被修改。</p></li><li><p>如果要在结构体或枚举的实例方法中修改属性，可以在方法前加上关键字<code>mutating</code>。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">moveBy</span><span class="params">(x deltaX: Double, y deltaY: Double)</span></span> &#123;</span><br><span class="line">        x += deltaX</span><br><span class="line">        y += deltaY</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> somePoint = <span class="type">Point</span>(x: <span class="number">1.0</span>, y: <span class="number">1.0</span>)</span><br><span class="line">somePoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The point is now at (\(somePoint.x), \(somePoint.y))"</span>)</span><br><span class="line"><span class="comment">// 打印“The point is now at (3.0, 4.0)”</span></span><br></pre></td></tr></table></figure></li><li><p>不能在枚举或结构体的常量上调用可变方法，因为其属性不能被改变，即使属性是变量属性。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fixedPoint = <span class="type">Point</span>(x: <span class="number">3.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line">fixedPoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="comment">// 这里将会报告一个错误</span></span><br></pre></td></tr></table></figure></li></ol><h2 id="类型方法"><a href="#类型方法" class="headerlink" title="类型方法"></a>类型方法</h2><ol><li><p>在方法的<code>func</code>关键字之前加上关键字 <code>static</code>，来指定类型方法。类还可以用关键字 <code>class</code> 来允许子类重写父类的方法实现。</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">someTypeMethod</span>() </span>&#123;</span><br><span class="line">        <span class="comment">// 在这里实现类型方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">SomeClass</span>.someTypeMethod()</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;类、结构体、枚举都可以定义实例方法和类型方法。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;实例方法&quot;&gt;&lt;a href=&quot;#实例方法&quot; class=&quot;headerlink&quot; title=&quot;实例方法&quot;&gt;&lt;/a&gt;实例方法&lt;/h2&gt;&lt;ol&gt;
-&lt;l
       
     
     </summary>
@@ -543,32 +573,6 @@
 &lt;li&gt;&lt;p&gt;&lt;code&gt;Swift&lt;/code&gt;用&lt;code&gt;Array&lt;/code&gt;、&lt;code&gt;Sets&lt;/code&gt;、&lt;code&gt;Dictionaries&lt;/code&gt;三种基本的集合类型用来存储集合数据。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code&gt;Array
-      
-    
-    </summary>
-    
-      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Swift基础" scheme="http://yoursite.com/tags/Swift%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift-字符串和字符</title>
-    <link href="http://yoursite.com/2019/05/28/Swift-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AD%97%E7%AC%A6/"/>
-    <id>http://yoursite.com/2019/05/28/Swift-字符串和字符/</id>
-    <published>2019-05-28T06:55:56.000Z</published>
-    <updated>2019-05-28T06:55:56.901Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p><code>Swift</code>的字符串通过<code>String</code>类型来表示。<code>Swift</code>中的<code>String</code>类型与<code>Foundation</code>中的<code>NSString</code>类进行了无缝桥接。</p></blockquote><ol><li><p>字符串字面量 ——&gt; <code>&quot;Some string literal value&quot;</code></p></li><li><p>多行字符串字面量-由一对三个双引号包裹着的文本：</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> multilineString = <span class="string">"""</span></span><br><span class="line"><span class="string">These are the same.</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure></li><li><p>字符串字面量中的特殊字符<code>\0(空字符)</code>、<code>\\(反斜线)</code>、<code>\t(水平制表符)</code>、<code>\n(换行符)</code>、<code>\r(回车符)</code>、<code>\&quot;(双引号)</code>、<code>\&#39;(单引号)</code>。</p></li><li><p><code>Swift</code>中<code>String</code>类型是值类型。字符串在传递时进行值拷贝。</p></li><li><p>使用<code>for-in</code>循环来遍历字符串，获取每个字符：</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> character <span class="keyword">in</span> <span class="string">"Dog!🐶"</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(character)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>字符串可以通过传递一个值类型为<code>Character</code>的数组作为自变量来初始化：</p> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> catCharacters: [<span class="type">Character</span>] = [<span class="string">"C"</span>, <span class="string">"a"</span>, <span class="string">"t"</span>, <span class="string">"!"</span>, <span class="string">"🐱"</span>]</span><br><span class="line"><span class="keyword">let</span> catString = <span class="type">String</span>(catCharacters)</span><br><span class="line"><span class="built_in">print</span>(catString)</span><br><span class="line"><span class="comment">// 打印输出：“Cat!🐱”</span></span><br></pre></td></tr></table></figure></li><li><p>不能将字符串或者字符添加到一个已经存在的字符变量上，因为字符变量只能包含一个字符。</p></li><li><p>字符串插值<code>\(multiplier)</code>。</p></li><li><p>每一个<code>String</code>值都有一个关联的索引类型，<code>String.index</code>对应字符串中的每一个<code>Character</code>的位置。</p></li><li><p>不同的字符可能会占据不同的内存空间，所以如果要知道一个<code>Character</code>的确定位置，必须从<code>String</code>的开头遍历。因此<code>Swift</code>的字符串不能用整数做索引。</p></li><li><p>使用<code>String</code>的<code>index(before:)</code>、<code>index(after:)</code>、<code>index(_:offsetBy:)</code>方法来获取一个索引。</p></li><li><p><code>Swift</code>中的<code>SubString</code>绝大部分函数与<code>String</code>一样。</p></li><li><p><code>String</code>和<code>SubString</code>的区别在性能上，<code>SubString</code>可以重用原<code>String</code>的内存空间或者另一个<code>SubString</code>的内存空间。</p></li><li><p><code>SubString</code>不合适长期存储–因为重用了原<code>String</code>的内存空间，原<code>String</code>内存空间必须保留知道<code>SubString</code>不再被使用为止。</p></li><li><p>下图展示<code>String</code>和<code>SubString</code>的关系：</p><p><img src="/2019/05/28/Swift-字符串和字符/stringSubstring_2x.png" alt="BP"></p></li><li><p><code>Swift</code>三种方式比较文本值：字符串字符相等、前缀相等。</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;Swift&lt;/code&gt;的字符串通过&lt;code&gt;String&lt;/code&gt;类型来表示。&lt;code&gt;Swift&lt;/code&gt;中的&lt;code&gt;String&lt;/code&gt;类型与&lt;code&gt;Foundation&lt;/code&gt;中的&lt;code&gt;NS
       
     
     </summary>

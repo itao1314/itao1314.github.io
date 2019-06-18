@@ -254,6 +254,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/Swift-自动引用计数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="疯癫和尚">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/12480682?s=400&u=0cf289ab830e5f2a5d3cb5d83685f9144a1b12fb&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="疯癫和尚">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/18/Swift-自动引用计数/" itemprop="url">Swift-自动引用计数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T15:44:23+08:00">
+                2019-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p><code>Swift</code>使用自动引用计数机制来跟踪和管理应用程序的内存。</p>
+</li>
+<li><p>将类实例赋值给属性、常量、变量，它们都会创建此实例的强引用。</p>
+</li>
+<li><p>如果两个类实例互相持有对方的强引用，因此类实例的强引用数永远不能变为0，类实例不能被释放，称为循环强引用。</p>
+</li>
+<li><p>可以通过定义类之间的关系为弱引用或无主引用来解决循环强引用的问题。</p>
+</li>
+<li><p>弱引用和无主引用允许循环引用中的一个实例引用另一个实例而不保持强引用。</p>
+</li>
+<li><p>声明属性或者变量时，在前面加上<code>weak</code>关键字表明这是一个弱引用。</p>
+</li>
+<li><p><code>ARC</code>会在引用的实例被销毁后自动将其弱引用赋值为<code>nil</code>，弱引用需要在运行时被赋值为<code>nil</code>，所有需要被定义为可选类型的变量。</p>
+</li>
+<li><p>当<code>ARC</code>设置弱引用为<code>nil</code>时，属性观察器不会被触发。</p>
+</li>
+<li><p>在声明属性或变量时，在前面加上关键字<code>unowned</code>表示这是一个无主引用。</p>
+</li>
+<li><p>无主引用通常被期望拥有值。</p>
+</li>
+<li><p><code>ARC</code>无法再实例销毁后将无主引用设为<code>nil</code>，因为非可选类型的变量不允许被赋值为<code>nil</code>。</p>
+</li>
+<li><p>使用无主引用，必须确保引用始终指向一个未销毁的实例。</p>
+</li>
+<li><p>在闭包和捕获的实例总是互相引用并且总是同时销毁时，将闭包内的捕获定义为无主列表。在捕获的引用可能为<code>nil</code>时，将闭包定义为弱引用。</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/Swift-泛型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1945,204 +2114,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/Swift-继承/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="疯癫和尚">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/12480682?s=400&u=0cf289ab830e5f2a5d3cb5d83685f9144a1b12fb&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="疯癫和尚">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/04/Swift-继承/" itemprop="url">Swift-继承</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-04T09:55:30+08:00">
-                2019-06-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>一个类可以继承另一个类的方法，属性和其他特性。当一个类继承其他类时，继承类叫子类，被继承的类叫超类（或父类）。</p>
-</blockquote>
-<h2 id="定义一个基类"><a href="#定义一个基类" class="headerlink" title="定义一个基类"></a>定义一个基类</h2><ol>
-<li><p>不继承其他类的类，称之为基类。</p>
-</li>
-<li><p><code>Swift</code>中的类不从一个通用的基类继承而来。</p>
-</li>
-</ol>
-<h2 id="子类生成"><a href="#子类生成" class="headerlink" title="子类生成"></a>子类生成</h2><ol>
-<li><p>子类生成指的的是在一个已有类的基础上创建一个新的类。</p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>: <span class="title">SomeSuperclass</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 这里是子类的定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h2><ol>
-<li><p>子类可以为继承来的实例方法，类方法，实例属性，类属性，或下标提供自己的实现，这种行为叫重写。</p>
-</li>
-<li><p>使用<code>override</code>标记重写。</p>
-</li>
-</ol>
-<h3 id="访问超类的方法，属性及下标"><a href="#访问超类的方法，属性及下标" class="headerlink" title="访问超类的方法，属性及下标"></a>访问超类的方法，属性及下标</h3><ol>
-<li>使用<code>super</code>前缀来访问超类的方法，属性或下标：<ul>
-<li>在方法 <code>someMethod()</code> 的重写实现中，可以通过 <code>super.someMethod()</code> 来调用超类版本的 <code>someMethod()</code> 方法。</li>
-<li>在属性 <code>someProperty</code> 的 <code>getter</code> 或 <code>setter</code> 的重写实现中，可以通过 <code>super.someProperty</code> 来访问超类版本的 <code>someProperty</code> 属性。</li>
-<li>在下标的重写实现中，可以通过 <code>super[someIndex]</code> 来访问超类版本中的相同下标。</li>
-</ul>
-</li>
-</ol>
-<h3 id="重写方法"><a href="#重写方法" class="headerlink" title="重写方法"></a>重写方法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Train</span>: <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Choo Choo"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="重写属性"><a href="#重写属性" class="headerlink" title="重写属性"></a>重写属性</h3><ol>
-<li>可以重写继承来的实例属性或类属性，提供定制的<code>getter</code>和<code>setter</code>，或添加属性观察器。</li>
-</ol>
-<h4 id="重写属性的Getter和Setter"><a href="#重写属性的Getter和Setter" class="headerlink" title="重写属性的Getter和Setter"></a>重写属性的<code>Getter</code>和<code>Setter</code></h4><ol>
-<li><p>子类并不知道继承来的属性是存储型的还是计算型的，只知道继承来的属性会有一个名字和类型。</p>
-</li>
-<li><p>重写一个属性是，必须将它的名字和类型都写出来，是编译器能去检查重写的属性是与超类中同名同类型的属性相匹配。</p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> currentSpeed = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"traveling at \(currentSpeed) miles per hour"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// 什么也不做——因为车辆不一定会有噪音</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutomaticCar</span>: <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> currentSpeed: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            gear = <span class="type">Int</span>(currentSpeed / <span class="number">10.0</span>) + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可以将继承来的只读属性重写为一个读写属性，只需提供<code>setter</code>和<code>getter</code>方法。</p>
-</li>
-<li><p>不可以将一个继承来的读写属性重写为一个只读属性。</p>
-</li>
-</ol>
-<h4 id="重写属性观察器"><a href="#重写属性观察器" class="headerlink" title="重写属性观察器"></a>重写属性观察器</h4><ol>
-<li><p>可以通过重写属性为继承来的属性添加属性观察器。</p>
-</li>
-<li><p>不可以为继承来的常量存储型属性或只读计算型属性添加属性观察器，因为这些属性的值是不可以被设置的。</p>
-</li>
-<li><p>不可以同时提供重写的<code>setter</code>和属性观察器。</p>
-</li>
-</ol>
-<h2 id="防止重写"><a href="#防止重写" class="headerlink" title="防止重写"></a>防止重写</h2><ol>
-<li><p>把属性，方法或下标标记为<code>final</code>防止重写。</p>
-</li>
-<li><p>使用<code>final class</code>来将整个类标记为<code>final</code>，这样的类不可以被继承。</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2195,7 +2166,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
