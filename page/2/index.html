@@ -254,6 +254,163 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/Swift-析构过程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="疯癫和尚">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/12480682?s=400&u=0cf289ab830e5f2a5d3cb5d83685f9144a1b12fb&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="疯癫和尚">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/05/Swift-析构过程/" itemprop="url">Swift-析构过程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T09:37:49+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>析构器只适用于类类型，当一个类的实例被释放之前，析构器会被立即调用。析构器用关键字<code>deinit</code>来标记。</p>
+</blockquote>
+<h2 id="析构过程原理"><a href="#析构过程原理" class="headerlink" title="析构过程原理"></a>析构过程原理</h2><ol>
+<li><p><code>Swift</code>通过自动引用计数（ARC）处理实例的内存管理。</p>
+</li>
+<li><p>每个类最多只能有一个析构器，析构器是在实例释放发生前被自动调用，不能主动调用。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">deinit</span> &#123;</span><br><span class="line">    <span class="comment">// 执行析构过程</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>子类继承父类的析构器，并且在子类析构器实现的最后，父类的析构器会被自动调用。</p>
+</li>
+<li><p>子类没有提供自己的析构器，父类的析构器也会被调用。</p>
+</li>
+<li><p>类的实例是在析构器调用后才会被释放，所有析构器可以访问实例的所有属性。</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/Swift-构造过程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1784,6 +1941,173 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/29/Swift-方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="疯癫和尚">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/12480682?s=400&u=0cf289ab830e5f2a5d3cb5d83685f9144a1b12fb&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="疯癫和尚">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/29/Swift-方法/" itemprop="url">Swift-方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T16:41:27+08:00">
+                2019-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>类、结构体、枚举都可以定义实例方法和类型方法。</p>
+</blockquote>
+<h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><ol>
+<li><p>实例方法是属于某个特定类、结构体、枚举类型实例的方法。</p>
+</li>
+<li><p>方法就是函数，只是函数与某个类型相关联了。</p>
+</li>
+<li><p>方法的参数名称和实例的属性名称相同时，参数名称享有优先权，此时使用<code>self</code>属性来区分参数名称和属性名称。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">isToTheRightOf</span><span class="params">(x: Double)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.x &gt; x</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> somePoint = <span class="type">Point</span>(x: <span class="number">4.0</span>, y: <span class="number">5.0</span>)</span><br><span class="line"><span class="keyword">if</span> somePoint.isToTheRightOf(x: <span class="number">1.0</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"This point is to the right of the line where x == 1.0"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印“This point is to the right of the line where x == 1.0”</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="在实例方法中修改值类型"><a href="#在实例方法中修改值类型" class="headerlink" title="在实例方法中修改值类型"></a>在实例方法中修改值类型</h3><ol>
+<li><p>结构体和枚举是值类型。默认情况下，值类型的属性不能再它的实例方法中被修改。</p>
+</li>
+<li><p>如果要在结构体或枚举的实例方法中修改属性，可以在方法前加上关键字<code>mutating</code>。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">moveBy</span><span class="params">(x deltaX: Double, y deltaY: Double)</span></span> &#123;</span><br><span class="line">        x += deltaX</span><br><span class="line">        y += deltaY</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> somePoint = <span class="type">Point</span>(x: <span class="number">1.0</span>, y: <span class="number">1.0</span>)</span><br><span class="line">somePoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The point is now at (\(somePoint.x), \(somePoint.y))"</span>)</span><br><span class="line"><span class="comment">// 打印“The point is now at (3.0, 4.0)”</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不能在枚举或结构体的常量上调用可变方法，因为其属性不能被改变，即使属性是变量属性。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fixedPoint = <span class="type">Point</span>(x: <span class="number">3.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line">fixedPoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="comment">// 这里将会报告一个错误</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="类型方法"><a href="#类型方法" class="headerlink" title="类型方法"></a>类型方法</h2><ol>
+<li><p>在方法的<code>func</code>关键字之前加上关键字 <code>static</code>，来指定类型方法。类还可以用关键字 <code>class</code> 来允许子类重写父类的方法实现。</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">someTypeMethod</span>() </span>&#123;</span><br><span class="line">        <span class="comment">// 在这里实现类型方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">SomeClass</span>.someTypeMethod()</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/29/Swift-函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1965,365 +2289,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/29/Swift-方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="疯癫和尚">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/12480682?s=400&u=0cf289ab830e5f2a5d3cb5d83685f9144a1b12fb&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="疯癫和尚">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/29/Swift-方法/" itemprop="url">Swift-方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T16:41:27+08:00">
-                2019-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>类、结构体、枚举都可以定义实例方法和类型方法。</p>
-</blockquote>
-<h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><ol>
-<li><p>实例方法是属于某个特定类、结构体、枚举类型实例的方法。</p>
-</li>
-<li><p>方法就是函数，只是函数与某个类型相关联了。</p>
-</li>
-<li><p>方法的参数名称和实例的属性名称相同时，参数名称享有优先权，此时使用<code>self</code>属性来区分参数名称和属性名称。</p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">isToTheRightOf</span><span class="params">(x: Double)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.x &gt; x</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> somePoint = <span class="type">Point</span>(x: <span class="number">4.0</span>, y: <span class="number">5.0</span>)</span><br><span class="line"><span class="keyword">if</span> somePoint.isToTheRightOf(x: <span class="number">1.0</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"This point is to the right of the line where x == 1.0"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印“This point is to the right of the line where x == 1.0”</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="在实例方法中修改值类型"><a href="#在实例方法中修改值类型" class="headerlink" title="在实例方法中修改值类型"></a>在实例方法中修改值类型</h3><ol>
-<li><p>结构体和枚举是值类型。默认情况下，值类型的属性不能再它的实例方法中被修改。</p>
-</li>
-<li><p>如果要在结构体或枚举的实例方法中修改属性，可以在方法前加上关键字<code>mutating</code>。</p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">moveBy</span><span class="params">(x deltaX: Double, y deltaY: Double)</span></span> &#123;</span><br><span class="line">        x += deltaX</span><br><span class="line">        y += deltaY</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> somePoint = <span class="type">Point</span>(x: <span class="number">1.0</span>, y: <span class="number">1.0</span>)</span><br><span class="line">somePoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The point is now at (\(somePoint.x), \(somePoint.y))"</span>)</span><br><span class="line"><span class="comment">// 打印“The point is now at (3.0, 4.0)”</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>不能在枚举或结构体的常量上调用可变方法，因为其属性不能被改变，即使属性是变量属性。</p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fixedPoint = <span class="type">Point</span>(x: <span class="number">3.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line">fixedPoint.moveBy(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="comment">// 这里将会报告一个错误</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="类型方法"><a href="#类型方法" class="headerlink" title="类型方法"></a>类型方法</h2><ol>
-<li><p>在方法的<code>func</code>关键字之前加上关键字 <code>static</code>，来指定类型方法。类还可以用关键字 <code>class</code> 来允许子类重写父类的方法实现。</p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">someTypeMethod</span>() </span>&#123;</span><br><span class="line">        <span class="comment">// 在这里实现类型方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">SomeClass</span>.someTypeMethod()</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/29/Swift-控制流/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="疯癫和尚">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/12480682?s=400&u=0cf289ab830e5f2a5d3cb5d83685f9144a1b12fb&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="疯癫和尚">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/29/Swift-控制流/" itemprop="url">Swift-控制流</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T14:25:08+08:00">
-                2019-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p><code>for-in</code>遍历字典，字典的每项元素会以<code>(Key, Value)</code>元组形式返回。</p>
-</li>
-<li><p><code>while</code>循环，每次在循环开始时计算条件是否符合。</p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> condition &#123;</span><br><span class="line">    statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>repeat-while</code>循环，每次在循环结束时计算条件是否符合。</p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">repeat</span> &#123;</span><br><span class="line">    statements</span><br><span class="line">&#125; <span class="keyword">while</span> condition</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>Swift</code>提供两种条件语句<code>if</code>和<code>switch</code>。</p>
-</li>
-<li><p><code>Swift</code>中的<code>switch</code>不存在隐式的贯穿，不需要显示使用<code>break</code>语句。</p>
-</li>
-<li><p><code>switch</code>中的每一个<code>case</code>分支都必须包含至少一条语句。</p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> anotherCharacter: <span class="type">Character</span> = <span class="string">"a"</span></span><br><span class="line"><span class="keyword">switch</span> anotherCharacter &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"a"</span>: <span class="comment">// 无效，这个分支下面没有语句</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">"A"</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"The letter A"</span>)</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Not the letter A"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这段代码会报编译错误</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>单个<code>case</code>同时匹配<code>a</code>和<code>A</code></p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> anotherCharacter: <span class="type">Character</span> = <span class="string">"a"</span></span><br><span class="line"><span class="keyword">switch</span> anotherCharacter &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"a"</span>, <span class="string">"A"</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"The letter A"</span>)</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Not the letter A"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出“The letter A”</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>case</code>还可以匹配一个值区间<code>case 1..&lt;5</code>。</p>
-</li>
-<li><p>可以使用元组在同一个<code>switch</code>语句中测试多个值。元组中的元素可以是值，也可以是区间，使用<code>_</code>来匹配所有可能的值。</p>
- <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> somePoint = (<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">switch</span> somePoint &#123;</span><br><span class="line"><span class="keyword">case</span> (<span class="number">0</span>, <span class="number">0</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\(somePoint) is at the origin"</span>)</span><br><span class="line"><span class="keyword">case</span> (<span class="number">_</span>, <span class="number">0</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\(somePoint) is on the x-axis"</span>)</span><br><span class="line"><span class="keyword">case</span> (<span class="number">0</span>, <span class="number">_</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\(somePoint) is on the y-axis"</span>)</span><br><span class="line"><span class="keyword">case</span> (-<span class="number">2</span>...<span class="number">2</span>, -<span class="number">2</span>...<span class="number">2</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\(somePoint) is inside the box"</span>)</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\(somePoint) is outside of the box"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出“(1, 1) is inside the box”</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>Swift</code>允许多个<code>case</code>匹配同一值。如果存在多个匹配，只会执行第一个被匹配到的<code>case</code>分支。</p>
-</li>
-<li><p><code>case</code>分支中可以使用值绑定，将匹配的值声明为临时的常量或者变量。临时的变量或常量只可以在对应的<code>case</code>分支中使用。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> anotherPoint = (<span class="number">2</span>, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">switch</span> anotherPoint &#123;</span><br><span class="line"><span class="keyword">case</span> (<span class="keyword">let</span> x, <span class="number">0</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"on the x-axis with an x value of \(x)"</span>)</span><br><span class="line"><span class="keyword">case</span> (<span class="number">0</span>, <span class="keyword">let</span> y):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"on the y-axis with a y value of \(y)"</span>)</span><br><span class="line"><span class="keyword">case</span> <span class="keyword">let</span> (x, y):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"somewhere else at (\(x), \(y))"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出“on the x-axis with an x value of 2”</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>case</code>分支可以使用<code>where</code>语句来判断额外的条件。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">let</span> yetAnotherPoint = (<span class="number">1</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="keyword">switch</span> yetAnotherPoint &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="keyword">let</span> (x, y) <span class="keyword">where</span> x == y:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"(\(x), \(y)) is on the line x == y"</span>)</span><br><span class="line"><span class="keyword">case</span> <span class="keyword">let</span> (x, y) <span class="keyword">where</span> x == -y:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"(\(x), \(y)) is on the line x == -y"</span>)</span><br><span class="line"><span class="keyword">case</span> <span class="keyword">let</span> (x, y):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"(\(x), \(y)) is just some arbitrary point"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出“(1, -1) is on the line x == -y”</span></span><br><span class="line"><span class="comment">//三个 case 都声明了常量 x 和 y 的占位符，用于临时获取元组 yetAnotherPoint 的两个值。这两个常量被用作 where 语句的一部分，从而创建一个动态的过滤器（filter）。当且仅当 where 语句的条件为 true 时，匹配到的 case 分支才会被执行</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>Swift</code>有五种控制转移语句：<code>continue</code>,<code>break</code>,<code>fallthrough</code>,<code>return</code>,<code>throw</code>。</p>
-</li>
-<li><p><code>continue</code>语句告诉一个循环体立刻停止本次循环，重新开始下次循环。</p>
-</li>
-<li><p><code>break</code>语句立刻结束整个控制流的执行。</p>
-</li>
-<li><p><code>switch</code>语句不会从上一个<code>case</code>分支跳转到下一个，如果要达到这种效果，使用<code>fallthrough</code>来达到目的。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> integerToDescribe = <span class="number">5</span></span><br><span class="line"><span class="keyword">var</span> description = <span class="string">"The number \(integerToDescribe) is"</span></span><br><span class="line"><span class="keyword">switch</span> integerToDescribe &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>:</span><br><span class="line">    description += <span class="string">" a prime number, and also"</span></span><br><span class="line">    <span class="keyword">fallthrough</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    description += <span class="string">" an integer."</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(description)</span><br><span class="line"><span class="comment">// 输出“The number 5 is a prime number, and also an integer.”</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>fallthrough</code> 关键字不会检查它下一个将会落入执行的 <code>case</code> 中的匹配条件。<code>fallthrough</code> 简单地使代码继续连接到下一个 <code>case</code> 中的代码，这和 <code>C</code>语言标准中的 <code>switch</code> 语句特性是一样的。</p>
-</li>
-<li><p><code>guard</code>的执行取决于一个表达式的布尔值，使用<code>guard</code>语句来要求条件必须为真时，以执行<code>guard</code>语句后面的代码。</p>
-</li>
-<li><p>不同于<code>if</code>语句，<code>guard</code>语句总是有一个<code>else</code>从句，如果条件不为真时则执行<code>else</code>从句中的代码,<code>else</code>语句必须转移控制以退出<code>guard</code>语句出现的代码块。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">greet</span><span class="params">(person: [String: String])</span></span> &#123;</span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> name = person[<span class="string">"name"</span>] <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Hello \(name)!"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> location = person[<span class="string">"location"</span>] <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"I hope the weather is nice near you."</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"I hope the weather is nice in \(location)."</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(person: [<span class="string">"name"</span>: <span class="string">"John"</span>])</span><br><span class="line"><span class="comment">// 输出“Hello John!”</span></span><br><span class="line"><span class="comment">// 输出“I hope the weather is nice near you.”</span></span><br><span class="line">greet(person: [<span class="string">"name"</span>: <span class="string">"Jane"</span>, <span class="string">"location"</span>: <span class="string">"Cupertino"</span>])</span><br><span class="line"><span class="comment">// 输出“Hello Jane!”</span></span><br><span class="line"><span class="comment">// 输出“I hope the weather is nice in Cupertino.”</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用<code>guard</code>的好处是提升代码的可读性，是代码连贯的被执行而不需要将它包在<code>else</code>块中，在紧邻条件判断的地方处理违规情况。</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2376,7 +2341,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
