@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://itao1314.github.io</id>
+    <title>iTao</title>
+    <updated>2022-08-01T09:37:40.564Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://itao1314.github.io"/>
+    <link rel="self" href="https://itao1314.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://itao1314.github.io/images/avatar.png</logo>
+    <icon>https://itao1314.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2022, iTao</rights>
+    <entry>
+        <title type="html"><![CDATA[SwiftUI 初识]]></title>
+        <id>https://itao1314.github.io/post/swiftui-chu-shi/</id>
+        <link href="https://itao1314.github.io/post/swiftui-chu-shi/">
+        </link>
+        <updated>2022-01-14T02:20:26.000Z</updated>
+        <content type="html"><![CDATA[<p>SwitUI是Apple在2019年推出全新的声明式UI框架。并且可以做到UI跟数据绑定，这样就不用程序员手动管理UI界面的更新来，真的做到了数据驱动UI。</p>
+<h1 id="创建swiftui工程">创建SwiftUI工程</h1>
+<h2 id="1-file-new-project-选择选择ios-app然后点击下一步">1. File ▸ New ▸ Project， 选择选择iOS ▸ App，然后点击下一步</h2>
+<figure data-type="image" tabindex="1"><img src="https://itao1314.github.io/post-images/1642127508531.png" alt="" loading="lazy"></figure>
+<h2 id="2-填入项目名称选择使用swiftui和swift点击下一步">2. 填入项目名称，选择使用SwiftUI和Swift，点击下一步</h2>
+<figure data-type="image" tabindex="2"><img src="https://itao1314.github.io/post-images/1642127519301.png" alt="" loading="lazy"></figure>
+<h2 id="3-选择好需要放置项目的地方点击创建">3. 选择好需要放置项目的地方，点击创建</h2>
+<figure data-type="image" tabindex="3"><img src="https://itao1314.github.io/post-images/1642127526733.png" alt="" loading="lazy"></figure>
+<h2 id="4-项目创建成功我们会看到下图">4. 项目创建成功，我们会看到下图</h2>
+<figure data-type="image" tabindex="4"><img src="https://itao1314.github.io/post-images/1642127797429.png" alt="" loading="lazy"></figure>
+<h1 id="分析contentviewswfit">分析ContentView.swfit</h1>
+<pre><code>// 导入SwiftUI框架，允许代码引用框架的功能
+import SwiftUI
+
+// ContentView可以不和文件名一致，习惯上还是一致的好。
+// View是协议, ContentView遵循View协议。
+// View协议要求ContentView实现计算属性body,返回一个遵循View协议的实例。
+// padding是View的一个实例方法，SwiftUI中叫做修饰语，其实质是一个返回View的方法。
+struct ContentView: View {
+    var body: some View {
+        Text(&quot;Hello, world!&quot;)
+            .padding()
+    }
+}
+
+// 此结构体就是右边预览显示的代码，注释它，就不能实时预览效果。
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+</code></pre>
+<p><code>ContentView</code>一般来说就是SwiftUI项目的入口，这里负责加载多个<code>subview</code>,<code>subview</code>会在单独的文件中定义。</p>
+<h1 id="新建swiftui文件">新建SwiftUI文件</h1>
+<p>新建SwiftUI文件跟新建OC文件跟Swift文件是一样的，只要选择SwiftUI就行了，如下图所示，命名为ByeView。<br>
+<img src="https://itao1314.github.io/post-images/1642142878045.png" alt="" loading="lazy"><br>
+SwiftUI文件会生成模版代码，跟ContentView的代码几乎一摸一样。</p>
+<pre><code>import SwiftUI
+
+struct ByeView: View {
+    var body: some View {
+        Text(&quot;Bye bye, World!&quot;)
+    }
+}
+
+struct ByeView_Previews: PreviewProvider {
+    static var previews: some View {
+        ByeView()
+    }
+}
+</code></pre>
+<h1 id="使用byeview">使用ByeView</h1>
+<p>在ContentView中，使用新建的ByeView。<br>
+<img src="https://itao1314.github.io/post-images/1642143117855.png" alt="" loading="lazy"></p>
+<h1 id="firstappappswift文件解析">FirstAppApp.swift文件解析</h1>
+<pre><code>import SwiftUI
+
+// @main标记了FirstAppApp作为程序的入口
+// 就像很多的语言的main函数一样，在SwiftUI中App协议做了这件事
+@main
+
+// App要求计算属性body返回一个Scene,Scene是一个加载根视图的容器。
+struct FirstAppApp: App {
+    var body: some Scene {
+        // 对于iOS App来说，默认设置WindowGroup包含一个ContentView作为根视图
+        WindowGroup {
+            ContentView()
+        }
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[函数]]></title>
+        <id>https://itao1314.github.io/post/han-shu/</id>
+        <link href="https://itao1314.github.io/post/han-shu/">
+        </link>
+        <updated>2022-01-11T03:20:55.000Z</updated>
+        <content type="html"><![CDATA[<p>函数在<code>Swift</code>中是头等公民，有三个关键点需要我们记住：</p>
+<ol>
+<li>函数可以<strong>赋值给变量</strong>，可以作为其他函数的<strong>参数</strong>和<strong>返回值</strong>。</li>
+<li>函数可以捕获其作用域外的变量</li>
+<li>创建函数有两种方式，一种是使用<code>func</code>关键字，一种是使用<code>{}</code>。后一种被称为闭包表达式（闭包表达式跟闭包不是一个概念）。</li>
+</ol>
+<h2 id="1-函数可以赋值给变量作为函数的输入和输出">1. 函数可以赋值给变量，作为函数的输入和输出</h2>
+<ol>
+<li>函数赋值给变量<pre><code> func printInt(i: Int) {
+ print(&quot;You passed \(i)&quot;)
+ }
+ let funcVar = printInt
+ funcVar(2)
+</code></pre>
+</li>
+<li>函数作为另一个函数的参数<pre><code> func useFunction(function: (Int) -&gt; ()) {
+     function(3)
+ }
+
+ useFunction(function: printInt)
+ useFunction(function: funcVar) 
+</code></pre>
+</li>
+<li>函数作为另一个函数的返回值<pre><code> func returnFunc() -&gt; (Int) -&gt; String {
+     func innerFunc(i: Int) -&gt; String {
+         return &quot;You passed \(i)&quot;
+     }
+     return innerFunc
+ }
+
+ let myFunc = returnFunc()
+ myFunc(3)
+</code></pre>
+</li>
+</ol>
+<h2 id="2-函数可以捕获存在于其作用域之外的变量">2. 函数可以捕获存在于其作用域之外的变量</h2>
+<p>当函数引用了其作用域之外的变量，这个变量就被捕获了。被捕获的变量会继续存在，而不会在超出作用域后被摧毁。直到捕获它的函数被摧毁。</p>
+<pre><code>    func counterFun() -&gt; (Int) -&gt; String {
+        var counter = 0
+        func innerFunc(i: Int) -&gt; String {
+            counter += i
+            return &quot;Running total: \(counter)&quot;
+        }
+        return innerFunc
+    }
+
+    let f = counterFun()
+    f(1) // Running total: 1
+    f(2) // Running total: 3
+</code></pre>
+<p><code>counter</code>变量定义在<code>counterFun</code>函数内，属于局部变量，一般情况下，在<code>return</code>语句执行之后会被摧毁，但是这里<code>innerFunc</code>函数捕获了它，所有不会被摧毁，从示例代码的运行结果也可以验证这一点。<br>
+<strong>在编程术语里，一个函数和它所捕获的变量环境组合起来被称为闭包。</strong></p>
+<h2 id="3-函数可以使用声明为闭包表达式">3. 函数可以使用<code>{}</code>声明为闭包表达式</h2>
+<p>使用<code>func</code>关键字声明函数</p>
+<pre><code>func doubler(i: Int) -&gt; Int {
+    return i * 2
+}
+[1, 2, 3, 4].map(doubler(i:)) //[2, 4, 6, 8]
+</code></pre>
+<p>下面使用闭包表达式语法声明同样的函数</p>
+<pre><code>let doublerAlt = { (i: Int) -&gt; Int in
+    return i * 2
+}
+[1, 2, 3, 4].map(doublerAlt) //[2, 4, 6, 8]
+</code></pre>
+<p>与<code>func</code>相比，闭包表达式是匿名的，表现形式上更加简洁。下面是使用闭包表达式让上面的<code>map</code>函数更加简洁：</p>
+<pre><code>// 这里没有将闭包表达式先赋值给一个变量，而是直接作为参数传入到map函数中，加上Swift语言的特性，可以简化为这个版本
+[1, 2, 3, 4].map { $0 * 2 }
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[displayModeButtonItem is internally managed and not exposed for DoubleColumn style]]></title>
+        <id>https://itao1314.github.io/post/displaymodebuttonitem-is-internally-managed-and-not-exposed-for-doublecolumn-style/</id>
+        <link href="https://itao1314.github.io/post/displaymodebuttonitem-is-internally-managed-and-not-exposed-for-doublecolumn-style/">
+        </link>
+        <updated>2021-09-01T07:00:51.000Z</updated>
+        <content type="html"><![CDATA[<p>在使用<code>NavigationLink</code>时遇到控制台报标题错误，实际场景时连续<code>push</code>两个<code>View</code>,解决办法时在最外层的<code>NavigationView</code>是添加<code>.navigationViewStyle(StackNavigationViewStyle())</code></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[@Published包装的属性不能自动Codable]]></title>
+        <id>https://itao1314.github.io/post/ce-shi-jing-tai-zhu-ye/</id>
+        <link href="https://itao1314.github.io/post/ce-shi-jing-tai-zhu-ye/">
+        </link>
+        <updated>2021-08-24T09:59:54.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://itao1314.github.io/post-images/1630313025830.png" alt="" loading="lazy"><br>
+如上图所示，在<code>SwiftUI</code>中同时使用<code>Codable</code>和<code>@Published</code>回报错，下面是解决改问题的方法：</p>
+<pre><code class="language-Swift">class User: Codable, ObservableObject {
+    @Published var name = &quot;iTao&quot;
+    
+    enum CodingKeys: CodingKey {
+        case name
+    }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
+</feed>

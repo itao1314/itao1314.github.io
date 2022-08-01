@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta name="referrer" content="never">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="kveln">
+  <title>函数 | iTao</title>
+  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="https://itao1314.github.io/media/css/bootstrap.min.css" rel="stylesheet"> -->
+  <!--  <link href="https://itao1314.github.io/media/css/all.min.css" rel="stylesheet" type="text/css"> -->
+  <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link rel="alternate" type="application/rss+xml" title="函数 | iTao » Feed" href="https://itao1314.github.io/atom.xml">
+  <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+  <link href="https://itao1314.github.io/styles/main.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+  <!-- <script src="https://itao1314.github.io/media/scripts/jquery.min.js"></script> -->
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+    <meta property="og:description" content="函数"/>
+    <meta property="og:url" content="https://itao1314.github.io/post/han-shu/"/>
+    <meta property="og:locale" content="zh-CN"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="iTao"/>
+  </head>
+  <body>
+  	<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="https://itao1314.github.io">iTao</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          
+          <li class="nav-item">
+              
+              <a class="nav-link" href="/">首页</a>
+              
+          </li>
+          
+          <li class="nav-item">
+              
+              <a class="nav-link" href="/archives">归档</a>
+              
+          </li>
+          
+          <li class="nav-item">
+              
+              <a class="nav-link" href="/tags">标签</a>
+              
+          </li>
+          
+          <li class="nav-item">
+              
+              <a class="nav-link" href="/post/about">关于</a>
+              
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('https://itao1314.github.io/media/images/home-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+          	<span class="tags">
+          	 
+            <a href="https://itao1314.github.io/tag/Kfl4kklMY/" class="tag">读书笔记</a>
+            
+            <a href="https://itao1314.github.io/tag/NLqtCgW3x/" class="tag">Swift</a>
+            
+            <a href="https://itao1314.github.io/tag/_61jEBCav/" class="tag">iOS</a>
+            
+        </span>
+            <h1>函数</h1>
+            <span class="meta">
+            	Posted on
+              2022-01-11，3 min read
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>函数在<code>Swift</code>中是头等公民，有三个关键点需要我们记住：</p>
+<ol>
+<li>函数可以<strong>赋值给变量</strong>，可以作为其他函数的<strong>参数</strong>和<strong>返回值</strong>。</li>
+<li>函数可以捕获其作用域外的变量</li>
+<li>创建函数有两种方式，一种是使用<code>func</code>关键字，一种是使用<code>{}</code>。后一种被称为闭包表达式（闭包表达式跟闭包不是一个概念）。</li>
+</ol>
+<h2 id="1-函数可以赋值给变量作为函数的输入和输出">1. 函数可以赋值给变量，作为函数的输入和输出</h2>
+<ol>
+<li>函数赋值给变量<pre><code> func printInt(i: Int) {
+ print(&quot;You passed \(i)&quot;)
+ }
+ let funcVar = printInt
+ funcVar(2)
+</code></pre>
+</li>
+<li>函数作为另一个函数的参数<pre><code> func useFunction(function: (Int) -&gt; ()) {
+     function(3)
+ }
+
+ useFunction(function: printInt)
+ useFunction(function: funcVar) 
+</code></pre>
+</li>
+<li>函数作为另一个函数的返回值<pre><code> func returnFunc() -&gt; (Int) -&gt; String {
+     func innerFunc(i: Int) -&gt; String {
+         return &quot;You passed \(i)&quot;
+     }
+     return innerFunc
+ }
+
+ let myFunc = returnFunc()
+ myFunc(3)
+</code></pre>
+</li>
+</ol>
+<h2 id="2-函数可以捕获存在于其作用域之外的变量">2. 函数可以捕获存在于其作用域之外的变量</h2>
+<p>当函数引用了其作用域之外的变量，这个变量就被捕获了。被捕获的变量会继续存在，而不会在超出作用域后被摧毁。直到捕获它的函数被摧毁。</p>
+<pre><code>    func counterFun() -&gt; (Int) -&gt; String {
+        var counter = 0
+        func innerFunc(i: Int) -&gt; String {
+            counter += i
+            return &quot;Running total: \(counter)&quot;
+        }
+        return innerFunc
+    }
+
+    let f = counterFun()
+    f(1) // Running total: 1
+    f(2) // Running total: 3
+</code></pre>
+<p><code>counter</code>变量定义在<code>counterFun</code>函数内，属于局部变量，一般情况下，在<code>return</code>语句执行之后会被摧毁，但是这里<code>innerFunc</code>函数捕获了它，所有不会被摧毁，从示例代码的运行结果也可以验证这一点。<br>
+<strong>在编程术语里，一个函数和它所捕获的变量环境组合起来被称为闭包。</strong></p>
+<h2 id="3-函数可以使用声明为闭包表达式">3. 函数可以使用<code>{}</code>声明为闭包表达式</h2>
+<p>使用<code>func</code>关键字声明函数</p>
+<pre><code>func doubler(i: Int) -&gt; Int {
+    return i * 2
+}
+[1, 2, 3, 4].map(doubler(i:)) //[2, 4, 6, 8]
+</code></pre>
+<p>下面使用闭包表达式语法声明同样的函数</p>
+<pre><code>let doublerAlt = { (i: Int) -&gt; Int in
+    return i * 2
+}
+[1, 2, 3, 4].map(doublerAlt) //[2, 4, 6, 8]
+</code></pre>
+<p>与<code>func</code>相比，闭包表达式是匿名的，表现形式上更加简洁。下面是使用闭包表达式让上面的<code>map</code>函数更加简洁：</p>
+<pre><code>// 这里没有将闭包表达式先赋值给一个变量，而是直接作为参数传入到map函数中，加上Swift语言的特性，可以简化为这个版本
+[1, 2, 3, 4].map { $0 * 2 }
+</code></pre>
+
+          
+          <p class="next-post">下一篇：
+            <a href="https://itao1314.github.io/post/displaymodebuttonitem-is-internally-managed-and-not-exposed-for-doublecolumn-style/">
+              <span class="post-title">
+                displayModeButtonItem is internally managed and not exposed for DoubleColumn style&rarr;
+              </span>
+            </a>
+          </p>
+        
+        <div class="comment">
+          
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<div id="gitalk-container"></div>
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'b2abe5658c1e5d1c6e19',
+    clientSecret: '1c4c589c53e271b5ca59521cf2cbb43985acd0f8',
+    repo: 'itao1314.github.io',
+    owner: 'itao1314',
+    admin: ['itao1314'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+          
+          
+        
+        </div>
+      </div>
+    </div>
+  </article>
+ <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <li class="list-inline-item">
+              <a href="https://itao1314.github.io/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>iTao</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://itao1314.github.io/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://itao1314.github.io/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  </body>
+</html>
+
